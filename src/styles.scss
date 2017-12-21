@@ -1,0 +1,66 @@
+@mixin justify-content($var) {
+  -ms-justify-content: $var;
+  -webkit-justify-content: $var;
+  justify-content:$var;
+}
+@mixin align-content($var) {
+  -ms-align-content: $var;
+  -webkit-align-content: $var;
+  align-content: $var;
+}
+@mixin align-items($var) {
+  -ms-align-items: $var;
+  -webkit-align-items: $var;
+  align-items: $var;
+}
+html, body {
+  background: #4c4c4c;
+  color: #ffffff;
+  font: 400 16px Ubuntu;
+}
+.flex-container {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  @include justify-content(space-between);
+  @include align-content(flex-start);
+  @include align-items(flex-start);
+}
+.flex-vert-center {
+  @include align-items(center);
+}
+main {
+  width: 1000px;
+  margin: 200px auto;
+}
+.song-block {
+  background: #474747;
+  padding: 12px 15px;
+  box-sizing: border-box;
+  transition: 0.3s;
+  margin-bottom: 3px;
+  cursor: pointer;
+  user-select: none;
+
+  &:hover {
+    background: #3e3e3e;
+  }
+
+  .play-btn {
+    margin-right: 10px;
+  }
+
+  .song-author {
+    font-size: 14px;
+    color: #9e9e9e;
+    font-weight: 300;
+  }
+
+  .hq-icon {
+    font-weight: 300;
+    margin-right: 5px;
+    padding: 2px 5px;
+    font-size: 10px;
+    background: #343434;
+  }
+}
