@@ -1,26 +1,24 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import PropTypes from 'prop-types';
+import axios from 'axios';
 
 import './styles.scss';
 
-import Song from "./Components/Song";
+import SongList from "./Components/SongList/SongList";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-  }
 
-  componentWillMount() {
-
+    this.state =  {
+    }
   }
 
   render()
   {
     return (
       <main>
-        <Song title="River" author="Eminem"/>
-        <Song title="Walk On Water" author="Eminem"/>
+        <SongList/>
       </main>
     )
   }

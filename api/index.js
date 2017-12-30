@@ -6,25 +6,87 @@ const fs = require('fs');
 
 const musicFolder = './music/';
 
-let musicList = {};
+// mp3Duration("./music/Drake - Hotline Bling.mp3", function (err, duration) {
+//   if (err) return console.log(err.message);
+//   console.log('Your file is ' + duration/60 + ' seconds long');
+// });
+//
 
-let mm = require('music-metadata');
-const util = require('util');
+let musicList = [];
+
+const jsmediatags = require("jsmediatags");
+
+let songID = 0;
 
 fs.readdir(musicFolder, (err, files) => {
-  files.forEach(file => {
-    mm.parseFile('./music/'+file, {native: true})
-      .then(function (metadata) {
-        let rFile = util.inspect(metadata, { showHidden: false, depth: null });
-        musicList = rFile;
-        console.log(rFile);
-      })
-      .catch(function (err) {
-        console.error(err.message);
-      });
-  });
-})
+  files.forEach(fileTitle => {
 
+    let songAuthor, songTitle;
+
+    fileTitle = fileTitle.replace(".mp3", "");
+
+    //trying to read meta tags
+    let readMetaTag = new Promise(function (resolve, reject) {
+      jsmediatags.read(`./music/${fileTitle}.mp3`, {
+        onSuccess: function(tag) {
+          let metaTitle = tag.tags.title;
+
+          if (metaTitle) {
+            metaTitle = metaTitle.replace(".mp3", "");
+            if (metaTitle.indexOf("-") > 0) {
+              metaTitle = metaTitle.split("-");
+            }
+            if (metaTitle.indexOf("–") > 0) {
+              metaTitle = metaTitle.split("–");
+            }
+
+            songTitle = metaTitle[1] || 'Unknown';
+            songAuthor = metaTitle[0] || 'Unknown';
+          } else {
+            reject();
+          }
+
+          resolve([songAuthor, songTitle]);
+        },
+        onError: function(error) {
+          console.log(':(', error.type, error.info);
+        }
+      });
+    });
+
+    //send meta tags or title
+    readMetaTag.then(result => {
+        musicList.push({
+          "songID": songID,
+          "songAuthor": songAuthor,
+          "songTitle": songTitle
+        });
+
+        songID++;
+      },
+      error => {
+        if (fileTitle.indexOf("-") > 0) {
+          fileTitle = fileTitle.split("-");
+        }
+        if (fileTitle.indexOf("–") > 0) {
+          fileTitle = fileTitle.split("–");
+        }
+
+        songTitle = fileTitle[1] || 'Unknown';
+        songAuthor = fileTitle[0] || 'Unknown';
+
+        musicList.push({
+          "songID": songID,
+          "songAuthor": songAuthor,
+          "songTitle": songTitle
+        });
+
+        songID++;
+      }
+    );
+
+  });
+});
 
 const app = express();
 

@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './Song.scss';
+
 function Song(props) {
   return(
-    <div className="song-block flex-container flex-vert-center">
+    <div className="song-block flex-container flex-vert-center"
+         onMouseDown={(e) => props.gotDrag(e)}>
       <div className="flex-container flex-vert-center">
         <div className="play-btn">play</div>
         <div>
@@ -20,8 +23,8 @@ function Song(props) {
 }
 
 Song.propTypes = {
-  title: PropTypes.array.isRequired,
-  author: PropTypes.array.isRequired
+  title: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired
 };
 
 export default Song;
