@@ -1,14 +1,19 @@
 .song-block {
+  position: relative;
   background: #474747;
   padding: 12px 15px;
   box-sizing: border-box;
-  transition: 0.3s;
+  transition: all 0.3s, transform 0s;
   margin-bottom: 3px;
   cursor: pointer;
   user-select: none;
 
   &:hover {
     background: #3e3e3e;
+  }
+
+  &:active {
+    box-shadow: 0 2px 3px rgba(1,1,1,0.5);
   }
 
   .play-btn {

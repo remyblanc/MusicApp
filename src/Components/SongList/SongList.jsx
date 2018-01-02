@@ -25,47 +25,43 @@ class SongList extends React.Component {
 
   handleGotDrag(obj) {
     let startX = obj.pageX || obj.originalEvent.touches[0].pageX,
+        startY = obj.pageY || obj.originalEvent.touches[0].pageY,
         currentPos = obj.target.style.transform,
-        x = 0;
+        x = 0,
+        y = 0,
+        song = obj.target;
 
-    console.log(obj.target);
+    currentPos ? (
+      currentPos = currentPos.match(/\d*/g,''),
+      currentPos = currentPos.filter(String),
+      currentPos.shift(),
+      currentPos.pop()
+    )
+    :
+      currentPos = 0;
+    song.style.zIndex = 50;
 
-    currentPos ? currentPos = parseInt(currentPos.replace(/[^-0-9]/g,'')) : currentPos = 0;
-
-    window.onmousemove = function(e)
-    {
+    window.onmousemove = function(e) {
       x = e.pageX || e.originalEvent.touches[0].pageX;
-      console.log(obj.target);
-      // obj.target.style.transform = `translateX(${currentPos-(startX-x)}px)`;
+      y = e.pageY || e.originalEvent.touches[0].pageY;
 
-      //document.getElementById("slide-list").style.transition = "0s";
-      //document.getElementById("slide-list").style.transform = `translateX(${currentPos-(startX-x)}px)`;
 
-      // window.onmouseup = function(e)
-      // {
-      //   window.onmousemove = null;
-      //   document.getElementById("slide-list").style.transition = "0.5s";
-      //
-      //   if (startX-20 > x)
-      //   {
-      //     props.changeSlide("next")
-      //     window.onmouseup = null;
-      //   } else if (startX < x-20)
-      //   {
-      //     props.changeSlide("prev")
-      //     window.onmouseup = null;
-      //   }
-      //   else
-      //   {
-      //     props.changeSlide(props.activeSlide+1)
-      //     window.onmouseup = null;
-      //   }
-      // }
-    };
+      song.style.transform = `translate3d(${currentPos[0]-(startX-x)}px, ${currentPos[1]-(startY-y)}px, 0px)`;
 
-    window.onmouseup = function(e)
-    {
-      window.onmousemove = null;
+      window.onmouseup = function(e) {
+        window.onmousemove = null;
+        console.log(y, startY);
+        if (y > startY+20 || y < startY-20) {
+          console.log('s');
+          song.style.zIndex = 0;
+          song.style.transform = `translate3d(0px, 0px, 0px)`;
+        } else {
+          console.log('s2');
+          song.style.zIndex = 0;
+        }
+
+
+      }
     };
   }
 
