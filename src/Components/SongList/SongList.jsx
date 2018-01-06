@@ -35,6 +35,8 @@ class SongList extends React.Component {
       return -1;
     }
 
+    //function shuffleSongs()
+
     let startX = obj.pageX || obj.originalEvent.touches[0].pageX,
         startY = obj.pageY || obj.originalEvent.touches[0].pageY,
         currentPos = obj.target.style.transform,
@@ -43,7 +45,9 @@ class SongList extends React.Component {
         songs = [...document.getElementsByClassName('song-block')],
         song = obj.target,
         songIndex = indexInParent(song),
-        songList = this;
+        songList = this,
+        moved, rounded,
+        ch = false;
 
     //Parsing current transform keys
     currentPos ? (
@@ -56,6 +60,8 @@ class SongList extends React.Component {
       currentPos = [0,0];
 
     song.style.zIndex = 50;
+    //Getting state
+    let musicList = songList.state.musicList;
 
     window.onmousemove = function(e) {
       x = e.pageX || e.originalEvent.touches[0].pageX;
@@ -63,17 +69,28 @@ class SongList extends React.Component {
 
       song.style.transform = `translate3d(${currentPos[0] - (startX - x)}px, ${currentPos[1] - (startY - y)}px, 0px)`;
 
-      let moved = (y - startY) / 60;
-      let rounded = Math.round(moved);
+      moved = (y - startY) / 60;
+      rounded = Math.round(moved);
+
       //Moving other songs
       if (y > startY-35) {
         if (rounded > 0) {
           document.getElementsByClassName('song-block')[rounded+songIndex].style.transform = `translate3d(0px, ${-(Math.sign(rounded)) * 61}px, 0px)`;
+          if (ch === false) {
+            //Changing position in state array
+            [musicList[songIndex], musicList[rounded + songIndex]] = [musicList[rounded + songIndex], musicList[songIndex]];
+            ch = true;
+          }
         }
       }
       if (y < startY+35) {
         if (rounded < 0) {
           document.getElementsByClassName('song-block')[rounded+songIndex].style.transform = `translate3d(0px, 61px, 0px)`;
+          if (ch === false) {
+            //Changing position in state array
+            [musicList[songIndex], musicList[rounded + songIndex]] = [musicList[rounded + songIndex], musicList[songIndex]];
+            ch = true;
+          }
         }
       }
 
@@ -91,20 +108,7 @@ class SongList extends React.Component {
 
           window.onmouseup = null;
 
-          let changeMusicList = () => {
-            //Getting state
-            let musicList = songList.state.musicList;
-
-            //Changing position in state array
-            [musicList[songIndex], musicList[rounded+songIndex]] = [musicList[rounded+songIndex], musicList[songIndex]];
-            //[...musicList] = chElems.map((ch) => musicList[ch]);
-
-            //Updating state
-            songList.setState({musicList});
-            console.log(musicList);
-          };
-
-          changeMusicList();
+          songList.setState({musicList});
         }
       }
     };

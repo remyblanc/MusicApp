@@ -101,4 +101,23 @@ app.get('/api/list', (req, res) => {
   res.send(musicList);
 });
 
+app.get('/api/music', (req, res) => {
+  console.log('s');
+  let fileId = req.query.id;
+  let file = __dirname + './music/' + fileId;
+  fs.exists(file,function(exists){
+    if(exists)
+    {
+      let rstream = fs.createReadStream(file);
+      rstream.pipe(res);
+    }
+    else
+    {
+      res.send("Its a 404");
+      res.end();
+    }
+
+  });
+});
+
 app.listen(5000, 'localhost');
