@@ -35,8 +35,6 @@ class SongList extends React.Component {
       return -1;
     }
 
-    //function shuffleSongs()
-
     let startX = obj.pageX || obj.originalEvent.touches[0].pageX,
         startY = obj.pageY || obj.originalEvent.touches[0].pageY,
         currentPos = obj.target.style.transform,
@@ -45,8 +43,10 @@ class SongList extends React.Component {
         songs = [...document.getElementsByClassName('song-block')],
         song = obj.target,
         songIndex = indexInParent(song),
+        songIndexAfterMove = songIndex,
         songList = this,
-        moved, rounded,
+        moved, rounded, prevRounded = 0,
+        musicList = songList.state.musicList,
         ch = false;
 
     //Parsing current transform keys
@@ -60,8 +60,6 @@ class SongList extends React.Component {
       currentPos = [0,0];
 
     song.style.zIndex = 50;
-    //Getting state
-    let musicList = songList.state.musicList;
 
     window.onmousemove = function(e) {
       x = e.pageX || e.originalEvent.touches[0].pageX;
@@ -69,16 +67,24 @@ class SongList extends React.Component {
 
       song.style.transform = `translate3d(${currentPos[0] - (startX - x)}px, ${currentPos[1] - (startY - y)}px, 0px)`;
 
-      moved = (y - startY) / 60;
+      moved = (y - startY) / 61;
       rounded = Math.round(moved);
+
+      if (rounded !== prevRounded) {
+        ch = false;
+      }
 
       //Moving other songs
       if (y > startY-35) {
         if (rounded > 0) {
           document.getElementsByClassName('song-block')[rounded+songIndex].style.transform = `translate3d(0px, ${-(Math.sign(rounded)) * 61}px, 0px)`;
+
           if (ch === false) {
             //Changing position in state array
-            [musicList[songIndex], musicList[rounded + songIndex]] = [musicList[rounded + songIndex], musicList[songIndex]];
+            [musicList[songIndexAfterMove], musicList[songIndexAfterMove + 1]] = [musicList[songIndexAfterMove + 1], musicList[songIndexAfterMove]];
+
+            prevRounded = rounded;
+            songIndexAfterMove++;
             ch = true;
           }
         }
@@ -88,7 +94,10 @@ class SongList extends React.Component {
           document.getElementsByClassName('song-block')[rounded+songIndex].style.transform = `translate3d(0px, 61px, 0px)`;
           if (ch === false) {
             //Changing position in state array
-            [musicList[songIndex], musicList[rounded + songIndex]] = [musicList[rounded + songIndex], musicList[songIndex]];
+            [musicList[songIndexAfterMove], musicList[songIndexAfterMove - 1]] = [musicList[songIndexAfterMove - 1], musicList[songIndexAfterMove]];
+
+            prevRounded = rounded;
+            songIndexAfterMove--;
             ch = true;
           }
         }
@@ -125,6 +134,7 @@ class SongList extends React.Component {
         {this.state.musicList.map(song =>
           <Song
             key={song.songID}
+            n={song.songID}
             title={song.songTitle}
             author={song.songAuthor}
             gotDrag={this.handleGotDrag}
