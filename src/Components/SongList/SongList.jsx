@@ -14,6 +14,7 @@ class SongList extends React.Component {
     };
 
     this.handleGotDrag = this.handleGotDrag.bind(this);
+    this.handlePlaySong = this.handlePlaySong.bind(this);
   }
 
   componentWillMount() {
@@ -21,6 +22,10 @@ class SongList extends React.Component {
       .then(response => response.data)
       .then(musicList => this.setState({ musicList }))
       .catch(error => console.error(error.message));
+  }
+
+  handlePlaySong(obj) {
+    console.log(obj.target);
   }
 
   handleGotDrag(obj) {
@@ -48,6 +53,18 @@ class SongList extends React.Component {
         moved, rounded, prevRounded = 0,
         musicList = songList.state.musicList,
         ch = false;
+
+    //Fixing floating title, author etc
+    if (song.className.indexOf('song-block') === -1) {
+      let parent = obj.target;
+
+      while (parent.className.indexOf('song-block') !== 0) {
+        console.log(parent.className);
+        parent = parent.parentNode;
+      }
+
+      song = parent;
+    }
 
     //Parsing current transform keys
     currentPos ? (
@@ -77,7 +94,7 @@ class SongList extends React.Component {
       //Moving other songs
       if (y > startY-35) {
         if (rounded > 0) {
-          document.getElementsByClassName('song-block')[rounded+songIndex].style.transform = `translate3d(0px, ${-(Math.sign(rounded)) * 61}px, 0px)`;
+          document.getElementsByClassName('song-block')[rounded+songIndex].style.transform = `translate3d(0px, -61px, 0px)`;
 
           if (ch === false) {
             //Changing position in state array
@@ -138,6 +155,7 @@ class SongList extends React.Component {
             title={song.songTitle}
             author={song.songAuthor}
             gotDrag={this.handleGotDrag}
+            playSong={this.handlePlaySong}
           />)
         }
       </div>
