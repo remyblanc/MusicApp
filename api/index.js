@@ -6,12 +6,6 @@ const fs = require('fs');
 
 const musicFolder = './music/';
 
-// mp3Duration("./music/Drake - Hotline Bling.mp3", function (err, duration) {
-//   if (err) return console.log(err.message);
-//   console.log('Your file is ' + duration/60 + ' seconds long');
-// });
-//
-
 let musicList = [];
 
 const jsmediatags = require("jsmediatags");
@@ -21,7 +15,10 @@ let songID = 0;
 fs.readdir(musicFolder, (err, files) => {
   files.forEach(fileTitle => {
 
-    let songAuthor, songTitle;
+    let songAuthor, songTitle, fullTitle = fileTitle;
+
+    //Getting rid of &,\, etc
+    fullTitle = encodeURIComponent(fullTitle);
 
     fileTitle = fileTitle.replace(".mp3", "");
 
@@ -59,7 +56,8 @@ fs.readdir(musicFolder, (err, files) => {
         musicList.push({
           "songID": songID,
           "songAuthor": songAuthor,
-          "songTitle": songTitle
+          "songTitle": songTitle,
+          "fullTitle": fullTitle
         });
 
         songID++;
@@ -78,7 +76,8 @@ fs.readdir(musicFolder, (err, files) => {
         musicList.push({
           "songID": songID,
           "songAuthor": songAuthor,
-          "songTitle": songTitle
+          "songTitle": songTitle,
+          "fullTitle": fullTitle
         });
 
         songID++;
@@ -102,22 +101,19 @@ app.get('/api/list', (req, res) => {
 });
 
 app.get('/api/music', (req, res) => {
-  console.log('s');
-  let fileId = req.query.id;
-  let file = __dirname + './music/' + fileId;
+  let fileTitle = req.query.fileTitle;
+  let file = `./music/${fileTitle}`;
   fs.exists(file,function(exists){
-    if(exists)
-    {
+    if(exists) {
       let rstream = fs.createReadStream(file);
       rstream.pipe(res);
     }
-    else
-    {
+    else {
       res.send("Its a 404");
       res.end();
     }
-
   });
 });
+
 
 app.listen(5000, 'localhost');
