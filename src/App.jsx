@@ -13,7 +13,7 @@ class App extends React.Component {
 
     this.state =  {
       musicList: [],
-      playingSong: null
+      playingSong: {}
     };
 
     this.handleGotDrag = this.handleGotDrag.bind(this);
@@ -34,11 +34,9 @@ class App extends React.Component {
 
     musicList.filter((song) => {
       if (song.songID === songID) {
-        songFullTitle = song.fullTitle
+        this.setState({ playingSong: song});
       }
     });
-
-    this.setState({ playingSong: songFullTitle});
   }
 
   handleGotDrag(obj) {
@@ -161,7 +159,7 @@ class App extends React.Component {
     return (
       <main>
         <SongPlayer
-          songAddress={`http://localhost:3000/api/music?fileTitle=${this.state.playingSong}`}
+          playingSong={this.state.playingSong}
         />
         <SongList
           musicList={this.state.musicList}
