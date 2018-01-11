@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import axios from 'axios';
 
-import './styles.scss';
+//import './styles.scss';
 
 import SongList from "./Components/SongList/SongList";
 import SongPlayer from "./Components/SongPlayer/SongPlayer";

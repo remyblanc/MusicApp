@@ -1,38 +1,43 @@
-@mixin justify-content($var) {
-  -ms-justify-content: $var;
-  -webkit-justify-content: $var;
-  justify-content:$var;
-}
-@mixin align-content($var) {
-  -ms-align-content: $var;
-  -webkit-align-content: $var;
-  align-content: $var;
-}
-@mixin align-items($var) {
-  -ms-align-items: $var;
-  -webkit-align-items: $var;
-  align-items: $var;
+//@mixin justify-content($var) {
+//  -ms-justify-content: $var;
+//  -webkit-justify-content: $var;
+//  justify-content:$var;
+//}
+//@mixin align-content($var) {
+//  -ms-align-content: $var;
+//  -webkit-align-content: $var;
+//  align-content: $var;
+//}
+//@mixin align-items($var) {
+//  -ms-align-items: $var;
+//  -webkit-align-items: $var;
+//  align-items: $var;
+//}
+* {
+  padding: 0px;
+  margin: 0px;
+  line-height: 1;
 }
 html, body {
-  background: #4c4c4c;
+  background: #2f3756;
   color: #ffffff;
-  font: 400 16px Ubuntu;
+  font-family: Circe;
 }
-.flex-container {
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  @include justify-content(space-between);
-  @include align-content(flex-start);
-  @include align-items(flex-start);
-}
-.flex-vert-center {
-  @include align-items(center);
-}
-main {
-  width: 1000px;
-  margin: 200px auto;
-}
-.SongList {
-  position: relative;
-}
+//.flex-container {
+//  display: -ms-flexbox;
+//  display: -webkit-flex;
+//  display: flex;
+//  @include justify-content(space-between);
+//  @include align-content(flex-start);
+//  @include align-items(flex-start);
+//}
+//.flex-vert-center {
+//  @include align-items(center);
+//}
+//main {
+//  width: 1000px;
+//  margin: 200px auto;
+//}
+//.SongList {
+//  position: relative;
+//}
