@@ -6,7 +6,7 @@ import React from 'react';
 function PlaylistPage(props) {
   return(
     <div>
-      423423
+      It's Playlist page
     </div>
   );
 }

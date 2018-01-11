@@ -9,23 +9,34 @@ import './styles.scss';
 
 import Menu from "./Components/Menu/Menu";
 import Header from "./Components/Header/Header";
+import { Link } from 'react-router-dom';
 
 import MainPage from "./Pages/MainPage/MainPage";
 import PlaylistPage from "./Pages/PlaylistPage/PlaylistPage";
 
-const App = ({ className }) => {
-  return(
-    <div {...{ className}}>
-      <Menu/>
-      <Header />
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/" component={MainPage} />
-          <Route path="/pl" component={PlaylistPage} />
-        </Switch>
-      </BrowserRouter>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state =  {
+      user: null
+    };
+  }
+
+  render() {
+    return (
+      <div className={this.props.className}>
+        <Menu/>
+        <Header/>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/" component={MainPage}/>
+            <Route path="/pl" component={PlaylistPage}/>
+          </Switch>
+        </BrowserRouter>
+      </div>
+    )
+  }
 };
 
 const StyledApp = styled(App)`
