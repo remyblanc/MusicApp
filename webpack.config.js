@@ -27,6 +27,10 @@ module.exports = {
           'file-loader'
         ]
       },
+      {
+        test: /\.(woff|woff2|eot|otf|ttf)$/i,
+        loader: "file-loader?name=fonts/[name]-[hash].[ext]"
+      },
     ]
   },
   plugins: [

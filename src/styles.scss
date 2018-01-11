@@ -13,15 +13,40 @@
 //  -webkit-align-items: $var;
 //  align-items: $var;
 //}
+@font-face  {
+  font-family: Circe;
+  src: url('fonts/Circe-Light.otf') format("truetype");
+  font-weight: 300;
+}
+@font-face  {
+  font-family: Circe;
+  src: url('fonts/Circe-Regular.otf') format("truetype");
+  font-weight: 400;
+}
+@font-face  {
+  font-family: Circe;
+  src: url('fonts/Circe-Bold.otf') format("truetype");
+  font-weight: 600;
+}
 * {
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
   line-height: 1;
+  letter-spacing: 0.5px;
 }
 html, body {
   background: #2f3756;
   color: #ffffff;
-  font-family: Circe;
+  font-family: Circe, serif;
+  font-weight: 300;
+}
+.material-icons {
+  font-family: Material Icons;
+}
+input[type=text] {
+  outline: none;
+  border: none;
+  color: #ffffff;
 }
 //.flex-container {
 //  display: -ms-flexbox;
