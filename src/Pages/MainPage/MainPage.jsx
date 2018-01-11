@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
-// import PropTypes from 'prop-types';
-import En from "../../Langs/En";
+
+import LangList from "../../Langs/LangList";
 
 import Search from "../../Components/Search/Search";
 
@@ -19,7 +19,8 @@ class MainPage extends React.Component {
     const NotLogged = styled.div`
       text-align:center;
       position:absolute;
-      top: 45%;
+      top: 50%;
+      transform: translateY(-50%);
       left: 0px;
       right: 0px;
       margin: auto;
@@ -28,7 +29,7 @@ class MainPage extends React.Component {
       p {
         font-size: 22px;
         line-height: 1.5;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
       }
     `;
 
@@ -38,7 +39,7 @@ class MainPage extends React.Component {
           <div>sda</div>
           :
           <NotLogged>
-            <p>{En.MainDesc}</p>
+            <p>{LangList.En.MainDesc}</p>
             <Search />
           </NotLogged>
         }
@@ -47,10 +48,5 @@ class MainPage extends React.Component {
   }
 
 }
-
-// Song.propTypes = {
-//   title: PropTypes.string.isRequired,
-//   author: PropTypes.string.isRequired
-// };
 
 export default MainPage;

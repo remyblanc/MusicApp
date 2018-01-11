@@ -31,7 +31,6 @@ const App = ({ className }) => {
 
 const StyledApp = styled(App)`
   margin-left: 109px;
-  background: rgba(1,1,1,0.3);
   ${macbook(`
     color: red;
   `)}

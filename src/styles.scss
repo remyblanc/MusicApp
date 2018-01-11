@@ -15,6 +15,11 @@
 //}
 @font-face  {
   font-family: Circe;
+  src: url('fonts/Circe-ExtraLight.otf') format("truetype");
+  font-weight: 100;
+}
+@font-face  {
+  font-family: Circe;
   src: url('fonts/Circe-Light.otf') format("truetype");
   font-weight: 300;
 }
@@ -43,10 +48,14 @@ html, body {
 .material-icons {
   font-family: Material Icons;
 }
-input[type=text] {
-  outline: none;
+input[type=text], button {
+  background: none;
   border: none;
-  color: #ffffff;
+  color: #ffffff;;
+  outline: none;
+}
+button {
+  cursor: pointer;
 }
 //.flex-container {
 //  display: -ms-flexbox;
