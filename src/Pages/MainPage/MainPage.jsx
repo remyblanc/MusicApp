@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from "styled-components";
 
 import LangList from "../../Langs/LangList";
@@ -6,16 +7,18 @@ import LangList from "../../Langs/LangList";
 import Search from "../../Components/Search/Search";
 
 class MainPage extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
 
     this.state = {
       user: null
     };
+
+    this.store = this.context.store;
   }
 
   render() {
-
+    // this.store.dispatch({type: "INC", payload: 3});
     const NotLogged = styled.div`
       text-align:center;
       position:absolute;
@@ -48,5 +51,10 @@ class MainPage extends React.Component {
   }
 
 }
+
+MainPage.contextTypes = {
+  store: PropTypes.object
+};
+
 
 export default MainPage;

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 
 import LangList from "../../Langs/LangList";
-import {theme, macbook, flexContainer, fontSize} from "../../../lib/theme";
+import {theme, macbook, flexContainer, fontSize} from "../../lib/theme";
 
 const BasicSearch = ({ className }) => {
   return(

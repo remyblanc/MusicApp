@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import { theme, macbook } from "../../../lib/theme";
+import { theme, macbook } from "../../lib/theme";
 
 const BasicUserPic = ({ className }) => {
   return(

@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from "styled-components";
-import { theme, macbook } from "../../../lib/theme";
+import { theme, macbook } from "../../lib/theme";
 
-import logo from '../../../lib/logo.png';
+import logo from '../../lib/logo.png';
 
 const BasicMenu = ({ className }) => {
   return(
