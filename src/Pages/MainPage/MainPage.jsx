@@ -1,24 +1,22 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from "styled-components";
+
+import { connect } from "react-redux";
 
 import LangList from "../../Langs/LangList";
 
 import Search from "../../Components/Search/Search";
 
 class MainPage extends React.Component {
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
 
     this.state = {
       user: null
     };
-
-    this.store = this.context.store;
   }
 
   render() {
-    // this.store.dispatch({type: "INC", payload: 3});
     const NotLogged = styled.div`
       text-align:center;
       position:absolute;
@@ -52,9 +50,10 @@ class MainPage extends React.Component {
 
 }
 
-MainPage.contextTypes = {
-  store: PropTypes.object
-};
+function mapDispatchToProps(dispatch) {
+  return {
+    onAdd: dispatch({type:"INC", amount: 2})
+  };
+}
 
-
-export default MainPage;
+export default connect(null, mapDispatchToProps)(MainPage);
