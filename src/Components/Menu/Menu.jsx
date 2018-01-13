@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
+
 import { theme, macbook } from "../../lib/theme";
 
 import logo from '../../lib/logo.png';
@@ -8,7 +10,9 @@ const BasicMenu = ({ className }) => {
   return(
     <div {...{ className}}>
       <div>
-        <img alt="" src={logo} />
+        <Link to="/">
+          <img alt="" src={logo} />
+        </Link>
       </div>
       <br />
       <div>playlists</div>
