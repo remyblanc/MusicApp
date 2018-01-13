@@ -10,10 +10,6 @@ import Search from "../../Components/Search/Search";
 class MainPage extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      user: null
-    };
   }
 
   render() {
@@ -36,7 +32,7 @@ class MainPage extends React.Component {
 
     return (
       <div>
-        {this.state.user ?
+        {this.props.store.user.name ?
           <div>sda</div>
           :
           <NotLogged>
@@ -50,10 +46,10 @@ class MainPage extends React.Component {
 
 }
 
-function mapDispatchToProps(dispatch) {
+function mapStateToProps(state) {
   return {
-    onAdd: dispatch({type:"INC", amount: 2})
-  };
+    store: state
+  }
 }
 
-export default connect(null, mapDispatchToProps)(MainPage);
+export default connect(mapStateToProps)(MainPage);

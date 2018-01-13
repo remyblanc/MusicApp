@@ -4,17 +4,21 @@ import styled from "styled-components";
 import { connect } from "react-redux";
 
 import { theme, macbook } from "../../lib/theme";
+import UserPic from "../UserPic/UserPic";
 
-const BasicUserPic= (props, { className }) => {
+const BasicUserForm = (props, { className }) => {
   return(
     <div {...{ className}}>
-
-      <div>{props.store.user.avatar || "default"}</div>
+      {props.store.user.name ?
+          <div>Logged <UserPic/></div>
+        :
+          <div>Log in Register <UserPic/></div>
+      }
     </div>
   );
 };
 
-const UserPic = styled(BasicUserPic)`
+const UserForm = styled(BasicUserForm)`
   
 `;
 
@@ -30,4 +34,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserPic);
+export default connect(mapStateToProps, mapDispatchToProps)(UserForm);

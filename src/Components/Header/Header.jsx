@@ -3,13 +3,13 @@ import styled from "styled-components";
 import { theme, macbook, flexContainer } from "../../lib/theme";
 
 import Search from ".././Search/Search";
-import UserPic from ".././UserPic/UserPic";
+import UserForm from ".././UserForm/UserForm";
 
 const BasicHeader = ({ className }) => {
   return(
     <div {...{ className}}>
       <Search />
-      <UserPic />
+      <UserForm />
     </div>
   );
 };
