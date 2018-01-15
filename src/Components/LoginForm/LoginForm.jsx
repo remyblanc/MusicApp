@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { connect } from "react-redux";
 
-import {theme, macbook, flexContainer} from "../../lib/theme";
+import {theme, macbook, flexContainer, fontSize} from "../../lib/theme";
 
 import BasicInput from "./../BasicInput/BasicInput";
 import BasicButton from "./../BasicButton/BasicButton";
@@ -22,8 +22,11 @@ const BasicLoginForm = (props) => {
         placeHolder={LangList.En.Password}
         icon="lock"
       />
-      <BasicButton buttonText="Log In"/>
-      <span>Forget your password?</span>
+      <BasicButton
+        buttonText="Log In"
+        Login={props.onLogin}
+      />
+      <span tabIndex="0">Forget your password?</span>
     </div>
   );
 };
@@ -42,14 +45,25 @@ const LoginForm = styled(BasicLoginForm)`
     margin-bottom: 10px;
   }
   
-  button {
-    margin: 5px 0;
+  > .button {
+    margin: 5px auto;
+  }
+  
+  > span {
+    ${fontSize(14, 16)}
+    opacity: 0.5;
+    transition: 0.3s;
+    cursor: pointer;
+    
+    &:hover {
+      opacity: 1;
+    }
   }
 `;
 
 function mapDispatchToProps(dispatch) {
   return {
-
+    onLogin: () => dispatch({'type': 'onLogin', 'login':1})
   }
 }
 

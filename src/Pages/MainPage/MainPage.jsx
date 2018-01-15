@@ -32,7 +32,8 @@ class MainPage extends React.Component {
 
     return (
       <div>
-        {this.props.store.user.name ?
+        {console.log(this.props.store.user)}
+        {this.props.store.user.login ?
           <div>sda</div>
           :
           <NotLogged>

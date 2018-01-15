@@ -48,13 +48,13 @@ html, body {
 .material-icons {
   font-family: Material Icons;
 }
-input[type=text], input[type=password], button {
+input[type=text], input[type=password], input[type=submit], button {
   background: none;
   border: none;
   color: #ffffff;;
   outline: none;
 }
-button {
+button, input[type=submit] {
   cursor: pointer;
 }
 //.flex-container {

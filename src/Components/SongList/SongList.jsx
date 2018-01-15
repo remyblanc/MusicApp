@@ -24,6 +24,6 @@ SongList.propTypes = {
   musicList: PropTypes.array.isRequired,
   gotDrag: PropTypes.func.isRequired,
   playSong: PropTypes.func.isRequired
-}
+};
 
 export default SongList;

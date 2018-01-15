@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
 
-const userReducer = (state = { name: null }, action) => {
+const userReducer = (state = { 'login': null }, action) => {
   switch (action.type) {
-    // case "INC":
-    //   return state = state+action.amount;
+    case "onLogin":
+      return {
+        login: action.login,
+      };
 
     default:
       return state;
