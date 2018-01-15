@@ -4,6 +4,8 @@ export const theme = {
     menuShadow: '#55608f',
     bgColor: '#434f74',
     bgColor2: '#2f3755',
+    lightBlue: '#46a9f3',
+    blue: '#136bec',
     white: '#ffffff',
   },
   fonts: {
@@ -62,6 +64,10 @@ export const flexContainer = (justifyContent, alignItems, alignContent) => (`
 `
 );
 
+export const gradient = (gradType, gradDirection, gradStart, gradEnd) => (`
+  background: ${gradType}-gradient(${gradType === 'linear' ? gradDirection+',' : ''} ${gradStart}, ${gradEnd});
+`);
+
 export const respondTo = (size, style) => `@media only screen and ${theme.layout[size].respondTo} {
   ${style}
 }`;
@@ -75,5 +81,6 @@ export const mobile = style => respondTo('mobile', style);
 theme.respondTo = respondTo;
 theme.fontSize = fontSize;
 theme.flexContainer = flexContainer;
+theme.gradient = gradient;
 
 export default theme;
