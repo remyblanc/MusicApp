@@ -26,7 +26,7 @@ const BasicLoginForm = (props) => {
         buttonText="Log In"
         Login={props.onLogin}
       />
-      <span tabIndex="0">Forget your password?</span>
+      <span tabIndex="0" data-action="forget" onClick={(e) => props.onForgetOrBack(e)}>Forget your password?</span>
     </div>
   );
 };
@@ -63,7 +63,30 @@ const LoginForm = styled(BasicLoginForm)`
 
 function mapDispatchToProps(dispatch) {
   return {
-    onLogin: () => dispatch({'type': 'onLogin', 'login':1})
+    onLogin: () => dispatch({'type': 'onLogin', 'login':1}),
+    onForgetOrBack: (e) => {
+      if (e.target.dataset.action === 'forget') {
+        e.target.innerHTML = "Back";
+        e.target.dataset.action = "back";
+        let inputs = document.getElementsByTagName('input');
+        [...inputs].filter((input) => {
+          if (input.type.toLowerCase() === "password") {
+            input.parentNode.style.opacity = '0';
+            input.parentNode.style.height = '0';
+          }
+        });
+      } else {
+        e.target.innerHTML = "Forget your password?";
+        e.target.dataset.action = "forget";
+        let inputs = document.getElementsByTagName('input');
+        [...inputs].filter((input) => {
+          if (input.type.toLowerCase() === "password") {
+            input.parentNode.style.opacity = '1';
+            input.parentNode.style.height = '56px';
+          }
+        });
+      }
+    }
   }
 }
 

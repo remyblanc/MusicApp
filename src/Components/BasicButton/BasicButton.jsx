@@ -14,6 +14,7 @@ const DefaultButton = (props) => {
 
 const BasicButton = styled(DefaultButton)`
   position:relative;
+  
   .gradient, .gradient:after {
     position: absolute;
     top: 0px;

@@ -21,9 +21,11 @@ const DefaultInput = (props) => {
 };
 
 const BasicInput = styled(DefaultInput)`
+  transition: opacity 0.3s, height 0.6s;
   position: relative;
   background: ${theme.colors.menuColor};
   border-radius: 4px;
+  height: 56px;
   
   label {
     position: absolute;

@@ -4,11 +4,8 @@
     <list default="true" id="73c6e2b6-f71e-4e95-bfe6-b5867bdb128a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/Components/BasicButton/BasicButton.jsx" afterPath="$PROJECT_DIR$/src/Components/BasicButton/BasicButton.jsx" />
+      <change beforePath="$PROJECT_DIR$/src/Components/BasicInput/BasicInput.jsx" afterPath="$PROJECT_DIR$/src/Components/BasicInput/BasicInput.jsx" />
       <change beforePath="$PROJECT_DIR$/src/Components/LoginForm/LoginForm.jsx" afterPath="$PROJECT_DIR$/src/Components/LoginForm/LoginForm.jsx" />
-      <change beforePath="$PROJECT_DIR$/src/Components/SongList/SongList.jsx" afterPath="$PROJECT_DIR$/src/Components/SongList/SongList.jsx" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/MainPage/MainPage.jsx" afterPath="$PROJECT_DIR$/src/Pages/MainPage/MainPage.jsx" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/index.js" afterPath="$PROJECT_DIR$/src/reducers/index.js" />
-      <change beforePath="$PROJECT_DIR$/src/styles.scss" afterPath="$PROJECT_DIR$/src/styles.scss" />
     </list>
     <ignored path="$PROJECT_DIR$/public/" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -35,11 +32,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginForm.jsx" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LoginForm.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Components/LoginForm/LoginForm.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1235">
-              <caret line="65" column="50" lean-forward="false" selection-start-line="65" selection-start-column="50" selection-end-line="65" selection-end-column="50" />
+            <state relative-caret-position="963">
+              <caret line="71" column="36" lean-forward="false" selection-start-line="71" selection-start-column="36" selection-end-line="71" selection-end-column="36" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -50,8 +47,8 @@
       <file leaf-file-name="BasicButton.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/BasicButton/BasicButton.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="37" lean-forward="false" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="67" />
+            <state relative-caret-position="304">
+              <caret line="16" column="2" lean-forward="false" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -59,23 +56,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/reducers/index.js">
+      <file leaf-file-name="BasicInput.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Components/BasicInput/BasicInput.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="6" column="23" lean-forward="false" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="store.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/lib/store.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="209">
+              <caret line="11" column="59" lean-forward="true" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="59" />
               <folding>
-                <element signature="e#0#36#0" expanded="true" />
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -131,13 +118,13 @@
         <option value="$PROJECT_DIR$/api/index.js" />
         <option value="$PROJECT_DIR$/src/Langs/LangList.js" />
         <option value="$PROJECT_DIR$/src/lib/theme.js" />
-        <option value="$PROJECT_DIR$/src/Components/BasicInput/BasicInput.jsx" />
         <option value="$PROJECT_DIR$/src/styles.scss" />
         <option value="$PROJECT_DIR$/src/Components/SongList/SongList.jsx" />
-        <option value="$PROJECT_DIR$/src/Components/BasicButton/BasicButton.jsx" />
         <option value="$PROJECT_DIR$/src/Pages/MainPage/MainPage.jsx" />
-        <option value="$PROJECT_DIR$/src/Components/LoginForm/LoginForm.jsx" />
         <option value="$PROJECT_DIR$/src/reducers/index.js" />
+        <option value="$PROJECT_DIR$/src/Components/BasicButton/BasicButton.jsx" />
+        <option value="$PROJECT_DIR$/src/Components/BasicInput/BasicInput.jsx" />
+        <option value="$PROJECT_DIR$/src/Components/LoginForm/LoginForm.jsx" />
       </list>
     </option>
   </component>
@@ -230,13 +217,6 @@
               <item name="MusicApp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="BasicButton" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MusicApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MusicApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
               <item name="BasicInput" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -253,38 +233,6 @@
               <item name="Components" type="462c0819:PsiDirectoryNode" />
               <item name="SongList" type="462c0819:PsiDirectoryNode" />
               <item name="Song" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MusicApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MusicApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MusicApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MusicApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MusicApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MusicApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Pages" type="462c0819:PsiDirectoryNode" />
-              <item name="LoginPage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MusicApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MusicApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Pages" type="462c0819:PsiDirectoryNode" />
-              <item name="MainPage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MusicApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MusicApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="reducers" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -368,12 +316,12 @@
       <workItem from="1515276266120" duration="43044000" />
       <workItem from="1515709531193" duration="9564000" />
       <workItem from="1515848376924" duration="564000" />
-      <workItem from="1515880443828" duration="17755000" />
+      <workItem from="1515880443828" duration="20159000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="154579000" />
+    <option name="totallyTimeSpent" value="156983000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-848" width="1096" height="1896" extended-state="6" />
@@ -412,20 +360,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Components/SongList/Song/Song.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="8" column="44" lean-forward="false" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="17" lean-forward="false" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/SongList/SongList.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="722">
@@ -728,34 +662,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/BasicInput/BasicInput.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="874">
-          <caret line="46" column="16" lean-forward="true" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/SongList/SongList.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="10" lean-forward="false" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/SongList/Song/Song.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="19" column="12" lean-forward="true" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/store.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -776,10 +682,64 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/actions/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reducers/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="24" lean-forward="true" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App2.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/SongList/Song/Song.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="19" column="12" lean-forward="true" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/SongList/SongList.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="10" lean-forward="false" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/BasicInput/BasicInput.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="59" lean-forward="true" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/BasicButton/BasicButton.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="37" lean-forward="false" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="67" />
+        <state relative-caret-position="304">
+          <caret line="16" column="2" lean-forward="false" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -788,19 +748,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/LoginForm/LoginForm.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1235">
-          <caret line="65" column="50" lean-forward="false" selection-start-line="65" selection-start-column="50" selection-end-line="65" selection-end-column="50" />
+        <state relative-caret-position="963">
+          <caret line="71" column="36" lean-forward="false" selection-start-line="71" selection-start-column="36" selection-end-line="71" selection-end-column="36" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/reducers/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="23" lean-forward="false" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
