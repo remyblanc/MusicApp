@@ -5,8 +5,8 @@ import {theme, macbook, flexContainer, fontSize, gradient} from "../../lib/theme
 
 const DefaultButton = (props) => {
   return(
-    <div className={props.className} onClick={(e) => props.Login()}>
-      <div className="button" tabIndex="0">{props.buttonText}</div>
+    <div className={props.className} onClick={(e) => props.Login(e)}>
+      <button className="button" tabIndex="0">{props.buttonText}</button>
       <div className="gradient" />
     </div>
   );

@@ -21,7 +21,7 @@ const DefaultInput = (props) => {
 };
 
 const BasicInput = styled(DefaultInput)`
-  transition: opacity 0.3s, height 0.6s;
+  transition: opacity 0.2s, height 0.4s;
   position: relative;
   background: ${theme.colors.menuColor};
   border-radius: 4px;
@@ -52,7 +52,6 @@ const BasicInput = styled(DefaultInput)`
     z-index: 2;
     top: 0px;
     transition: 0.3s;
-    border: 1px solid ${theme.colors.menuColor};
     border-radius: 4px;
     
     &:focus {

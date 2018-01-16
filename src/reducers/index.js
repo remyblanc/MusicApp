@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux';
+import { ON_LOGIN } from '../actions';
 
 const userReducer = (state = { 'login': null }, action) => {
   switch (action.type) {
-    case "onLogin":
+    case ON_LOGIN:
       return {
         login: action.login,
       };
