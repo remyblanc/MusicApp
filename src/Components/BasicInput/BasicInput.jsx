@@ -11,6 +11,7 @@ const DefaultInput = (props) => {
         data-name={props.name}
         data-value=""
         onChange={(e) => e.target.setAttribute('data-value', e.target.value)}
+        onClick={(e) => e.target.parentNode.classList.remove('error')}
       />
       <label>
         <span className="material-icons">{props.icon}</span>
@@ -26,6 +27,11 @@ const BasicInput = styled(DefaultInput)`
   background: ${theme.colors.menuColor};
   border-radius: 4px;
   height: 56px;
+  
+  &.error {
+    box-shadow: 0px 0px 4px 1px ${theme.colors.red};
+    animation: tremble 0.2s 2;  
+  }
   
   label {
     position: absolute;
@@ -57,7 +63,7 @@ const BasicInput = styled(DefaultInput)`
     &:focus {
       box-shadow: 0px 0px 30px ${theme.colors.menuShadow};
     }
-    
+
     &:focus + label span:not(.material-icons), &:not([data-value=""]) + label span:not(.material-icons) {
       opacity: 0;
     }

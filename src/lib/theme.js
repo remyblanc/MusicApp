@@ -7,6 +7,7 @@ export const theme = {
     lightBlue: '#46a9f3',
     blue: '#136bec',
     white: '#ffffff',
+    red: '#ff000a'
   },
   fonts: {
     CirceLight: `

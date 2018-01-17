@@ -51,23 +51,32 @@ html, body {
 input[type=text], input[type=password], input[type=submit], button {
   background: none;
   border: none;
-  color: #ffffff;;
+  color: #ffffff;
   outline: none;
 }
 button, input[type=submit] {
   cursor: pointer;
 }
-//.flex-container {
-//  display: -ms-flexbox;
-//  display: -webkit-flex;
-//  display: flex;
-//  @include justify-content(space-between);
-//  @include align-content(flex-start);
-//  @include align-items(flex-start);
-//}
-//.flex-vert-center {
-//  @include align-items(center);
-//}
+
+// animations
+@keyframes tremble {
+  0% {
+    transform: translateX(0px);
+  }
+  25% {
+      transform: translateX(3px);
+  }
+  50% {
+      transform: translateX(0px);
+  }
+  75% {
+      transform: translateX(-3px);
+  }
+  100% {
+       transform: translateX(0px);
+   }
+}
+
 //main {
 //  width: 1000px;
 //  margin: 200px auto;

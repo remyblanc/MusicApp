@@ -2,7 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 
 import { connect } from "react-redux";
-import { onLogin, onForget } from '../../actions';
+import { onLogin, onForgetLinkClick } from '../../actions';
 
 import {theme, macbook, flexContainer, fontSize} from "../../lib/theme";
 
@@ -10,45 +10,13 @@ import BasicInput from "./../BasicInput/BasicInput";
 import BasicButton from "./../BasicButton/BasicButton";
 import LangList from "../../Langs/LangList";
 
-// const BasicLoginForm = (props) => {
-//   return(
-//     <div className={props.className}>
-//       <div>
-//         <span>Login</span>
-//         <span>Register</span>
-//       </div>
-//       <BasicInput
-//         type="text"
-//         placeHolder={LangList.En.Login}
-//         icon="person"
-//         ref="login"
-//       />
-//       <BasicInput
-//         type="password"
-//         placeHolder={LangList.En.Password}
-//         icon="lock"
-//         ref="password"
-//       />
-//       <BasicButton
-//         buttonText="Log In"
-//         Login={props.onLogin}
-//       />
-//       <span
-//         tabIndex="0"
-//         data-action="forget"
-//         onClick={(e) => props.onForgetOrBack(e)}>Forget your password?</span>
-//     </div>
-//   );
-// };
-
 class BasicLoginForm extends React.Component {
   constructor(props) {
     super(props);
   }
-
   render() {
     return(
-      <form className={this.props.className} onSubmit={(e) => {this.props.onSubmit(e, this)}}>
+      <form className={this.props.className} onSubmit={this.props.onSubmit}>
         <div>
           <span>Login</span>
           <span>Register</span>
@@ -66,13 +34,12 @@ class BasicLoginForm extends React.Component {
           icon="lock"
         />
         <BasicButton
-          buttonText="Log In"
-          Login={this.props.onLogin}
+          buttonText={LangList.En.LogIn}
         />
         <span
           tabIndex="0"
           data-action="forget"
-          onClick={(e) => this.props.onForgetOrBack(e)}>Forget your password?</span>
+          onClick={(e) => this.props.onForgetOrBack(e)}>{LangList.En.ForgetLink}</span>
       </form>
     )
   }
@@ -109,24 +76,30 @@ const LoginForm = styled(BasicLoginForm)`
   }
 `;
 
-function mapDispatchToProps(dispatch, ownProps) {
+function mapStateToProps(state) {
+
+}
+
+function mapDispatchToProps(dispatch) {
   return {
-    onLogin: (e) => {
-      e.target.blur();
-      // dispatch(onLogin({'login':1}))
-    },
-    onSubmit: (e, component) => {
+    onSubmit: (e) => {
       e.preventDefault();
       let arr = [...e.target.getElementsByTagName('input')];
       let obj = {};
       arr.map((e) => {
-        obj[e.dataset.name] = e.dataset.value;
+        if (e.dataset.value) {
+          obj[e.dataset.name] = e.dataset.value;
+        } else {
+          e.parentNode.classList.add('error');
+          return obj = {};
+        }
       });
-      console.log(obj);
-      dispatch(onLogin(obj));
+      if (obj.login) {
+        dispatch(onLogin(obj));
+      }
     },
-    onForgetOrBack: (e) => onForget(e)
+    onForgetOrBack: (e) => onForgetLinkClick(e.target)
   }
 }
 
-export default connect(null, mapDispatchToProps, null, { withRef: true })(LoginForm);
+export default connect(null, mapDispatchToProps)(LoginForm);

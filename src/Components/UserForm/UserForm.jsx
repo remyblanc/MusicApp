@@ -11,7 +11,7 @@ import UserPic from "../UserPic/UserPic";
 const BasicUserForm = (props) => {
   return(
     <div className={props.className}>
-      {props.store.user.name ?
+      {props.store.user.login ?
           <UserPic/>
         :
         <div>
