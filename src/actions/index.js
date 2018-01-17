@@ -4,7 +4,8 @@ export const ON_FORGET = ON_FORGET;
 export function onLogin(user) {
   return {
     type: ON_LOGIN,
-    login: user.login
+    login: user.login,
+    password: user.password
   };
 }
 

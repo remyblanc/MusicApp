@@ -8,9 +8,9 @@ const DefaultInput = (props) => {
     <div className={props.className}>
       <input
         type={props.type}
+        data-name={props.name}
         data-value=""
         onChange={(e) => e.target.setAttribute('data-value', e.target.value)}
-        onKeyUp={(e) => e.target.setAttribute('data-value', e.target.value)}
       />
       <label>
         <span className="material-icons">{props.icon}</span>

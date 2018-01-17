@@ -44,33 +44,26 @@ import LangList from "../../Langs/LangList";
 class BasicLoginForm extends React.Component {
   constructor(props) {
     super(props);
-
-    this.handleSubmit = this.handleSubmit.bind(this)
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    console.log(this.refs.login);
   }
 
   render() {
     return(
-      <form className={this.props.className} onSubmit={this.handleSubmit}>
+      <form className={this.props.className} onSubmit={(e) => {this.props.onSubmit(e, this)}}>
         <div>
           <span>Login</span>
           <span>Register</span>
         </div>
         <BasicInput
           type="text"
+          name="login"
           placeHolder={LangList.En.Login}
           icon="person"
-          ref="login"
         />
         <BasicInput
           type="password"
+          name="password"
           placeHolder={LangList.En.Password}
           icon="lock"
-          ref="password"
         />
         <BasicButton
           buttonText="Log In"
@@ -122,9 +115,15 @@ function mapDispatchToProps(dispatch, ownProps) {
       e.target.blur();
       // dispatch(onLogin({'login':1}))
     },
-    onSubmit: (e) => {
+    onSubmit: (e, component) => {
       e.preventDefault();
-      console.log(ownProps.refs);
+      let arr = [...e.target.getElementsByTagName('input')];
+      let obj = {};
+      arr.map((e) => {
+        obj[e.dataset.name] = e.dataset.value;
+      });
+      console.log(obj);
+      dispatch(onLogin(obj));
     },
     onForgetOrBack: (e) => onForget(e)
   }
