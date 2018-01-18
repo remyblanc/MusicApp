@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { routerReducer } from 'react-router-redux';
 import { SAGA_LOGIN, ON_RECOVER } from '../actions';
 
 const userReducer = (state = { 'login': null, 'password': null }, action) => {
@@ -21,7 +22,8 @@ const userReducer = (state = { 'login': null, 'password': null }, action) => {
 };
 
 const reducers = combineReducers({
-  user: userReducer
+  user: userReducer,
+  routerReducer
 });
 
 export default reducers;

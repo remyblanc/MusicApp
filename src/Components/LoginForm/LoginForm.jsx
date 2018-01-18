@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import { connect } from "react-redux";
 import { onLogin, onRecover, onForgetLinkClick } from '../../actions';
+import { push } from 'react-router-redux';
 
 import {theme, macbook, flexContainer, fontSize} from "../../lib/theme";
 
@@ -32,7 +33,8 @@ class BasicLoginForm extends React.Component {
       hidden.classList.add("hidden");
       hidden.classList.remove("shown");
       hidden.style.opacity = '0';
-      document.getElementsByClassName("loader")[0].style.opacity = '1';
+      // document.getElementsByClassName("loader")[0].style.opacity = '1';
+      props.changeUrl();
     }
   }
 
@@ -152,6 +154,7 @@ function mapDispatchToProps(dispatch) {
       }
     },
     onForgetOrBack: (e) => onForgetLinkClick(e.target),
+    changeUrl: () => dispatch(push('/')),
   }
 }
 
