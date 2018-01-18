@@ -48,6 +48,30 @@ html, body {
 .material-icons {
   font-family: Material Icons;
 }
+.hidden {
+  height: 0;
+  transition: 0.3s;
+  opacity: 0;
+}
+.shown {
+  height: auto;
+  transition-delay: 0.3s;
+  transition: 0.3s;
+}
+.loader {
+  width: 64px;
+  height: 64px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  margin: auto;
+  opacity: 0;
+  transition: 0.3s;
+  z-index: 0;
+}
 input[type=text], input[type=password], input[type=submit], button {
   background: none;
   border: none;

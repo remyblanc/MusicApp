@@ -1,12 +1,18 @@
 import { combineReducers } from 'redux';
-import { ON_LOGIN } from '../actions';
+import { SAGA_LOGIN, ON_RECOVER } from '../actions';
 
 const userReducer = (state = { 'login': null, 'password': null }, action) => {
   switch (action.type) {
-    case ON_LOGIN:
+    case SAGA_LOGIN: {
       return {
         login: action.login,
-        password: action.password,
+        logged: action.logged
+      };
+    }
+
+    case ON_RECOVER:
+      return {
+        login: action.login
       };
 
     default:

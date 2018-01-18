@@ -98,7 +98,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('*', (req, res) => {
+app.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname + '/../public/index.html'));
 });
 
@@ -121,5 +121,15 @@ app.get('/api/music', (req, res) => {
   });
 });
 
+
+app.post('/api/login', (req, res) => {
+  let findedUser;
+  if (req.body.user.login === "123" && req.body.user.password === "321") {
+    findedUser = 'yes';
+  } else {
+    findedUser = 'no';
+  }
+  res.send(findedUser);
+});
 
 app.listen(5000, 'localhost');

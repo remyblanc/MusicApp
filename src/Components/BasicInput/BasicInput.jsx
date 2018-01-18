@@ -48,10 +48,8 @@ const BasicInput = styled(DefaultInput)`
   }
   
   input[type=text], input[type=password] {
-    padding: ${theme.paddings.inputTop} ${theme.paddings.inputSide};
+    padding: 18px ${theme.paddings.inputSide} 15px;
     background: transparent;
-    ${theme.fonts.CirceLight}
-    ${fontSize(16, 24)}
     width: 100%;
     box-sizing: border-box;
     position: relative;
@@ -69,8 +67,13 @@ const BasicInput = styled(DefaultInput)`
     }
   }
   
+  input[type=text] {
+    ${theme.fonts.CirceLight}
+    ${fontSize(16, 16)}
+  }
+  
   input[type=password] {
-    ${fontSize(24, 0)}
+    ${fontSize(20,18)}  
   }
 `;
 

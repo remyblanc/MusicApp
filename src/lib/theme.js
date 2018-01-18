@@ -2,8 +2,8 @@ export const theme = {
   colors: {
     menuColor: '#282f4b',
     menuShadow: '#55608f',
-    bgColor: '#434f74',
-    bgColor2: '#2f3755',
+    bgColorLighter: '#434f74',
+    bgColorDarker: '#2f3755',
     lightBlue: '#46a9f3',
     blue: '#136bec',
     white: '#ffffff',
