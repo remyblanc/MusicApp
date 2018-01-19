@@ -25,18 +25,43 @@ class BasicLoginForm extends React.Component {
       hidden.classList.remove("hidden");
       hidden.classList.add("shown");
       hidden.style.opacity = '1';
-    } else {
+    } else if (props.store.user.logged === "yes") {
       [...this.childNode.getElementsByTagName("input")].filter(input => {
         input.parentNode.classList.remove("error");
+        input.parentNode.classList.add("success");
       });
       let hidden = this.childNode.getElementsByClassName("incorrect-password")[0];
       hidden.classList.add("hidden");
       hidden.classList.remove("shown");
       hidden.style.opacity = '0';
-      // document.getElementsByClassName("loader")[0].style.opacity = '1';
-      props.changeUrl();
+      setTimeout(() => {
+        this.childNode.style.opacity = 0;
+        document.getElementsByClassName("loader")[0].style.opacity = '1';
+        setTimeout(() => {
+          props.changeUrl('/');
+        },800);
+      },550);
+    }
+
+    if (props.store.user.recoverUser === "yes") {
+      [...this.childNode.getElementsByTagName("input")].filter(input => {
+        input.parentNode.classList.remove("error");
+        input.parentNode.classList.add("success");
+      });
+      let hidden = this.childNode.getElementsByClassName("recover-info")[0];
+      hidden.classList.remove("hidden");
+      hidden.classList.add("shown");
+      hidden.style.opacity = '1';
+    } else {
+
     }
   }
+
+  // componentDidMount() {
+  //   if (this.props.store.user.logged === "yes") {
+  //     this.props.changeUrl('/');
+  //   }
+  // }
 
   render() {
     return(
@@ -45,7 +70,6 @@ class BasicLoginForm extends React.Component {
         ref={(ref) => this.childNode = ref}
         data-form="login-form"
         onSubmit={this.props.onSubmit}>
-
         <div>
           <span>Login</span>
           <span>Register</span>
@@ -62,11 +86,11 @@ class BasicLoginForm extends React.Component {
           placeHolder={LangList.En.Password}
           icon="lock"
         />
+        <div className="recover-info hidden">User founded, next actions sent to email.</div>
+        <div className="incorrect-password hidden">It seems that login or password incorrect.</div>
         <BasicButton
           buttonText={LangList.En.LogIn}
         />
-        <div className="incorrect-password hidden">It seems that login or password incorrect.</div>
-
         <span
           tabIndex="0"
           data-action="forget"
@@ -78,6 +102,7 @@ class BasicLoginForm extends React.Component {
 }
 
 const LoginForm = styled(BasicLoginForm)`
+  transition: 0.3s;
   text-align:center;
   position:absolute;
   // top: 50%;
@@ -87,7 +112,7 @@ const LoginForm = styled(BasicLoginForm)`
   margin: auto;
   width:400px;
   
-  .incorrect-password {
+  .incorrect-password, .recover-info {
     ${fontSize(14, 16)}
     margin: 0px;
     color: ${theme.colors.red};
@@ -97,6 +122,10 @@ const LoginForm = styled(BasicLoginForm)`
     &.shown {
       margin-bottom: 5px;
     }
+  }
+  
+  .recover-info {
+    color: ${theme.colors.green};
   }
   
   > div {
@@ -154,7 +183,7 @@ function mapDispatchToProps(dispatch) {
       }
     },
     onForgetOrBack: (e) => onForgetLinkClick(e.target),
-    changeUrl: () => dispatch(push('/')),
+    changeUrl: (location) => dispatch(push(location)),
   }
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { ConnectedRouter } from 'react-router-redux';
 import { history } from './lib/store';
 import styled from 'styled-components';
@@ -17,6 +17,11 @@ import PlaylistPage from "./Pages/PlaylistPage/PlaylistPage";
 import LoginPage from "./Pages/LoginPage/LoginPage";
 
 const BasicApp = ({ className }) => {
+  const firstChild = props => {
+    const childrenArray = React.Children.toArray(props.children);
+    return childrenArray[0] || null;
+  };
+
   return(
     <div {...{ className}}>
       <ConnectedRouter history={history}>
@@ -24,9 +29,14 @@ const BasicApp = ({ className }) => {
           <Menu />
           <Header />
           <img className="loader" alt="" src={loader} />
-          <Route exact path="/" component={MainPage} />
-          <Route path="/pl" component={PlaylistPage} />
-          <Route path="/login" component={LoginPage} />
+            <Switch>
+              <Route
+                exact
+                path="/"
+                component={MainPage} />
+              <Route path="/pl" component={PlaylistPage} />
+              <Route path="/login" component={LoginPage} />
+            </Switch>
         </div>
       </ConnectedRouter>
     </div>

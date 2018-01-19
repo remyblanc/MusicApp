@@ -22,15 +22,19 @@ const DefaultInput = (props) => {
 };
 
 const BasicInput = styled(DefaultInput)`
-  transition: opacity 0.2s, height 0.4s;
+  transition: opacity 0.2s, height 0.4s, box-shadow 0.3s;
   position: relative;
   background: ${theme.colors.menuColor};
   border-radius: 4px;
   height: 56px;
   
   &.error {
-    box-shadow: 0px 0px 4px 1px ${theme.colors.red};
+    box-shadow: 0px 0px 0px 1px ${theme.colors.red};
     animation: tremble 0.2s 2;  
+  }
+  
+  &.success {
+    box-shadow: 0px 0px 0px 1px ${theme.colors.green};
   }
   
   label {

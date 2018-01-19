@@ -15,7 +15,24 @@ function* CheckLogin(user) {
   }
 }
 
-// Our watcher Saga: spawn a new incrementAsync task on each INCREMENT_ASYNC
-export function* mySaga() {
+//Login event listener
+export function* loginSaga() {
   yield takeEvery('ON_LOGIN', CheckLogin);
+}
+
+function* CheckRecover(user) {
+  try {
+    const response = yield call(axios.post, 'http://localhost:3000/api/recover', {user});
+    yield response.data === 'yes' ?
+      put({type: 'SAGA_RECOVER', 'login': user.login, 'recoverUser': response.data})
+      :
+      put({type: 'SAGA_RECOVER', 'recoverUser': response.data})
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+//Recover event listener
+export function* recoverSaga() {
+  yield takeEvery('ON_RECOVER', CheckRecover);
 }

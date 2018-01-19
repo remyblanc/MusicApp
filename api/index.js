@@ -132,4 +132,14 @@ app.post('/api/login', (req, res) => {
   res.send(findedUser);
 });
 
+app.post('/api/recover', (req, res) => {
+  let findedUser;
+  if (req.body.user.login === "123") {
+    findedUser = 'yes';
+  } else {
+    findedUser = 'no';
+  }
+  res.send(findedUser);
+});
+
 app.listen(5000, 'localhost');

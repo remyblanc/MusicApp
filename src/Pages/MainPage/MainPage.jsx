@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 
 import LangList from "../../Langs/LangList";
 
+import AnimatedRouter from "../../Components/AnimatedRouter/AnimatedRouter";
 import Search from "../../Components/Search/Search";
 
 class MainPage extends React.Component {
@@ -31,8 +32,7 @@ class MainPage extends React.Component {
     `;
 
     return (
-      <div>
-        {console.log(this.props.store.user)}
+      <AnimatedRouter>
         {this.props.store.user.login ?
           <div>sda</div>
           :
@@ -41,7 +41,7 @@ class MainPage extends React.Component {
             <Search />
           </NotLogged>
         }
-      </div>
+      </AnimatedRouter>
     );
   }
 

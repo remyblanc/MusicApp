@@ -1,6 +1,7 @@
 export const ON_LOGIN = 'ON_LOGIN';
 export const ON_RECOVER = 'ON_RECOVER';
 export const SAGA_LOGIN = 'SAGA_LOGIN';
+export const SAGA_RECOVER = 'SAGA_RECOVER';
 
 import LangList from "../Langs/LangList";
 
@@ -33,6 +34,7 @@ export function onForgetLinkClick(forgetLink) {
     forgetLink.parentNode.getElementsByClassName('button')[0].innerHTML = LangList.En.Recover;
     [...forgetLink.parentNode.getElementsByTagName('input')].filter((input) => {
       input.parentNode.classList.remove('error');
+      input.parentNode.classList.remove('success');
       if (input.type.toLowerCase() === "password") {
         input.disabled = true;
         input.parentNode.style.opacity = '0';
@@ -48,6 +50,7 @@ export function onForgetLinkClick(forgetLink) {
     forgetLink.parentNode.getElementsByClassName('button')[0].innerHTML = LangList.En.LogIn;
     [...forgetLink.parentNode.getElementsByTagName('input')].filter((input) => {
       input.parentNode.classList.remove('error');
+      input.parentNode.classList.remove('success');
       if (input.type.toLowerCase() === "password") {
         input.disabled = false;
         input.parentNode.style.opacity = '1';

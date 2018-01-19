@@ -1,9 +1,13 @@
 import React from 'react';
+
 import LoginForm from "../../Components/LoginForm/LoginForm";
+import AnimatedRouter from "../../Components/AnimatedRouter/AnimatedRouter";
 
 const LoginPage = () => {
     return (
-      <LoginForm />
+      <AnimatedRouter>
+          <LoginForm />
+      </AnimatedRouter>
     );
 };
 

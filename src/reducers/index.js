@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
-import { SAGA_LOGIN, ON_RECOVER } from '../actions';
+import { SAGA_LOGIN, SAGA_RECOVER } from '../actions';
 
 const userReducer = (state = { 'login': null, 'password': null }, action) => {
   switch (action.type) {
@@ -11,10 +11,16 @@ const userReducer = (state = { 'login': null, 'password': null }, action) => {
       };
     }
 
-    case ON_RECOVER:
+    case SAGA_RECOVER: {
       return {
-        login: action.login
+        login: action.login,
+        recoverUser: action.recoverUser
       };
+    }
+    // case ON_RECOVER:
+    //   return {
+    //     login: action.login
+    //   };
 
     default:
       return state;
