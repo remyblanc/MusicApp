@@ -1,8 +1,9 @@
 export const ON_LOGIN = 'ON_LOGIN';
 export const ON_RECOVER = 'ON_RECOVER';
-export const FLY_SEARCH = 'FLY_SEARCH';
+export const ON_SEARCH = 'ON_SEARCH';
 export const SAGA_LOGIN = 'SAGA_LOGIN';
 export const SAGA_RECOVER = 'SAGA_RECOVER';
+export const SAGA_SEARCH = 'SAGA_SEARCH';
 
 
 import LangList from "../Langs/LangList";
@@ -25,11 +26,10 @@ export function onRecover(user) {
 }
 
 //implements on search
-export function flySearch(searchData) {
-  console.log(searchData);
+export function onSearch(searchData) {
   return {
-    type: FLY_SEARCH,
-    flySeach: searchData
+    type: ON_SEARCH,
+    searchData: searchData
   };
 }
 

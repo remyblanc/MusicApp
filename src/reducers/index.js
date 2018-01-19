@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
-import { SAGA_LOGIN, SAGA_RECOVER, FLY_SEARCH } from '../actions';
+import { SAGA_LOGIN, SAGA_RECOVER, SAGA_SEARCH } from '../actions';
 
-const userReducer = (state = { 'login': null }, action) => {
+const userReducer = (state = {}, action) => {
   switch (action.type) {
     case SAGA_LOGIN:
       return {
@@ -23,9 +23,9 @@ const userReducer = (state = { 'login': null }, action) => {
 
 const searchReducer = (state = {}, action) => {
   switch (action.type) {
-    case FLY_SEARCH:
+    case SAGA_SEARCH:
       return {
-        flySearch: action
+        searchData: action.searchData
       };
 
     default:

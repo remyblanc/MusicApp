@@ -145,4 +145,16 @@ app.post('/api/recover', (req, res) => {
   res.send(findedUser);
 });
 
+app.post('/api/search', (req, res) => {
+  let arr = [];
+  musicList.map((song) => {
+    if (song.fullTitle.toLowerCase().indexOf(req.body.searchData.searchData.toLowerCase()) >= 0 ||
+      song.songAuthor.toLowerCase().indexOf(req.body.searchData.searchData.toLowerCase()) >= 0 ||
+      song.songTitle.toLowerCase().indexOf(req.body.searchData.searchData.toLowerCase()) >= 0) {
+      arr.push(song);
+    }
+  });
+  res.send(arr);
+});
+
 app.listen(5000, 'localhost');

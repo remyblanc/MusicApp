@@ -4,7 +4,7 @@ import createHistory from 'history/createBrowserHistory';
 import { routerMiddleware } from 'react-router-redux';
 
 import reducers from '../reducers';
-import { loginSaga, recoverSaga } from './../sagas';
+import { loginSaga, recoverSaga, searchSaga } from './../sagas';
 
 export const history = createHistory();
 
@@ -17,6 +17,7 @@ export const store = createStore(reducers, applyMiddleware(...middlewares));
 
 sagaMiddleWare.run(loginSaga);
 sagaMiddleWare.run(recoverSaga);
+sagaMiddleWare.run(searchSaga);
 
 store.subscribe(() => {
   console.log("store changed", store.getState());

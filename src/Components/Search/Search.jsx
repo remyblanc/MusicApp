@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from "styled-components";
 
-import {connect} from "react-redux";
-import { flySearch } from '../../actions';
+import { connect } from "react-redux";
+import { onSearch } from '../../actions';
 
 import LangList from "../../Langs/LangList";
 import {theme, macbook, flexContainer, fontSize} from "../../lib/theme";
+
+import SearchResult from "../SearchResult/SearchResult";
 
 const BasicSearch = (props) => {
   return(
@@ -17,8 +19,8 @@ const BasicSearch = (props) => {
           (e) => {
             e.target.setAttribute('data-value', e.target.value);
             e.target.value.length >= '3' ? (
-              props.flySearch(e.target.value)
-            ) : null;
+              props.onSearch(e.target.value)
+            ) : props.onSearch(null);
           }
         }
         onKeyUp={(e) => e.target.setAttribute('data-value', e.target.value)}
@@ -27,9 +29,29 @@ const BasicSearch = (props) => {
         <span>{LangList.En.Search}</span>
       </label>
       <button className="material-icons">search</button>
+      <SearchResults>
+        {
+          props.store.search.searchData ? (
+              props.store.search.searchData.map(song => { return (
+                <SearchResult
+                  key={0}
+                  songData={song}
+                />)
+              }))
+            :
+            null
+        }
+      </SearchResults>
     </div>
   );
 };
+
+const SearchResults = styled.div`
+  position: absolute;
+  left: 0px;
+  top: 60px;
+  text-align: left;
+`;
 
 const Search = styled(BasicSearch)`
   position: relative;
@@ -87,7 +109,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    flySearch: (searchData) => dispatch(flySearch(searchData))
+    onSearch: (searchData) => dispatch(onSearch(searchData))
   }
 }
 
