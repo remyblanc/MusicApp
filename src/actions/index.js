@@ -1,11 +1,11 @@
 export const ON_LOGIN = 'ON_LOGIN';
 export const ON_RECOVER = 'ON_RECOVER';
+export const FLY_SEARCH = 'FLY_SEARCH';
 export const SAGA_LOGIN = 'SAGA_LOGIN';
 export const SAGA_RECOVER = 'SAGA_RECOVER';
 
-import LangList from "../Langs/LangList";
 
-import axios from 'axios';
+import LangList from "../Langs/LangList";
 
 //implements when user press Log In Button
 export function onLogin(user) {
@@ -21,6 +21,15 @@ export function onRecover(user) {
   return {
     type: ON_RECOVER,
     login: user.login,
+  };
+}
+
+//implements on search
+export function flySearch(searchData) {
+  console.log(searchData);
+  return {
+    type: FLY_SEARCH,
+    flySeach: searchData
   };
 }
 

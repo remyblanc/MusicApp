@@ -15,6 +15,7 @@ import Header from "./Components/Header/Header";
 import MainPage from "./Pages/MainPage/MainPage";
 import PlaylistPage from "./Pages/PlaylistPage/PlaylistPage";
 import LoginPage from "./Pages/LoginPage/LoginPage";
+import RegisterPage from "./Pages/RegisterPage/RegisterPage";
 
 const BasicApp = ({ className }) => {
   const firstChild = props => {
@@ -36,6 +37,7 @@ const BasicApp = ({ className }) => {
                 component={MainPage} />
               <Route path="/pl" component={PlaylistPage} />
               <Route path="/login" component={LoginPage} />
+              <Route path="/register" component={RegisterPage} />
             </Switch>
         </div>
       </ConnectedRouter>

@@ -17,9 +17,8 @@ const BasicUserForm = (props) => {
         <div>
           <div>
             <Link to='/login'>Log in</Link>
-            <Link to='/pl'>Register</Link>
+            <Link to='/register'>Register</Link>
           </div>
-          <UserPic/>
         </div>
       }
     </div>

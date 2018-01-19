@@ -101,6 +101,9 @@ app.use((req, res, next) => {
 app.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname + '/../public/index.html'));
 });
+app.get('/register', (req, res) => {
+  res.sendFile(path.join(__dirname + '/../public/index.html'));
+});
 
 app.get('/api/list', (req, res) => {
   res.send(musicList);

@@ -49,6 +49,10 @@ module.exports = {
       '/login': {
       target: 'http://localhost:5000',
         secure: false
+      },
+      '/register': {
+        target: 'http://localhost:5000',
+        secure: false
       }
     }
   }

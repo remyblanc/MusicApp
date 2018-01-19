@@ -11,7 +11,7 @@ import BasicInput from "./../BasicInput/BasicInput";
 import BasicButton from "./../BasicButton/BasicButton";
 import LangList from "../../Langs/LangList";
 
-class BasicLoginForm extends React.Component {
+class BasicRegisterForm extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -26,6 +26,7 @@ class BasicLoginForm extends React.Component {
       hidden.classList.add("shown");
       hidden.style.opacity = '1';
     } else if (props.store.user.logged === "yes") {
+      login(props.store);
       [...this.childNode.getElementsByTagName("input")].filter(input => {
         input.parentNode.classList.remove("error");
         input.parentNode.classList.add("success");
@@ -64,6 +65,7 @@ class BasicLoginForm extends React.Component {
   // }
 
   render() {
+
     return(
       <form
         className={this.props.className}
@@ -76,6 +78,12 @@ class BasicLoginForm extends React.Component {
         </div>
         <BasicInput
           type="text"
+          name="email"
+          placeHolder={LangList.En.Email}
+          icon="person"
+        />
+        <BasicInput
+          type="text"
           name="login"
           placeHolder={LangList.En.Login}
           icon="person"
@@ -86,22 +94,23 @@ class BasicLoginForm extends React.Component {
           placeHolder={LangList.En.Password}
           icon="lock"
         />
-        <div className="recover-info hidden">User founded, next actions sent to email.</div>
-        <div className="incorrect-password hidden">It seems that login or password incorrect.</div>
-        <BasicButton
-          buttonText={LangList.En.LogIn}
+        <BasicInput
+          type="password"
+          name="re-password"
+          placeHolder={LangList.En.RetypePassword}
+          icon="lock"
         />
-        <span
-          tabIndex="0"
-          data-action="forget"
-          onClick={(e) => this.props.onForgetOrBack(e)}
-          onKeyUp={(e) => e.keyCode === 13 ? this.props.onForgetOrBack(e) : null}>{LangList.En.ForgetLink}</span>
+        <div className="recover-info hidden">{LangList.En.RecoverInfo}</div>
+        <div className="incorrect-password hidden">{LangList.En.LogInInfo}</div>
+        <BasicButton
+          buttonText={LangList.En.Register}
+        />
       </form>
     )
   }
 }
 
-const LoginForm = styled(BasicLoginForm)`
+const RegisterForm = styled(BasicRegisterForm)`
   transition: 0.3s;
   text-align:center;
   position:absolute;
@@ -182,9 +191,8 @@ function mapDispatchToProps(dispatch) {
 
       }
     },
-    onForgetOrBack: (e) => onForgetLinkClick(e.target),
     changeUrl: (location) => dispatch(push(location)),
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterForm);

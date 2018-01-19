@@ -1,16 +1,26 @@
 import React from 'react';
 import styled from "styled-components";
 
+import {connect} from "react-redux";
+import { flySearch } from '../../actions';
+
 import LangList from "../../Langs/LangList";
 import {theme, macbook, flexContainer, fontSize} from "../../lib/theme";
 
-const BasicSearch = ({ className }) => {
+const BasicSearch = (props) => {
   return(
-    <div {...{ className}}>
+    <div className={props.className}>
       <input
         type="text"
         data-value=""
-        onChange={(e) => e.target.setAttribute('data-value', e.target.value)}
+        onChange={
+          (e) => {
+            e.target.setAttribute('data-value', e.target.value);
+            e.target.value.length >= '3' ? (
+              props.flySearch(e.target.value)
+            ) : null;
+          }
+        }
         onKeyUp={(e) => e.target.setAttribute('data-value', e.target.value)}
       />
       <label>
@@ -68,4 +78,17 @@ const Search = styled(BasicSearch)`
   }
 `;
 
-export default Search;
+
+function mapStateToProps(state) {
+  return {
+    store: state
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    flySearch: (searchData) => dispatch(flySearch(searchData))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Search);
