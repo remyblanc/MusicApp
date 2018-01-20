@@ -13,10 +13,10 @@ const NotLogged = styled.div`
   position:absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: 0px;
-  right: 0px;
+  left: 0;
+  right: 0;
   margin: auto;
-  width:690px;
+  width: 690px;
   
   p {
     font-size: 22px;

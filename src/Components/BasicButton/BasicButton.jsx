@@ -17,9 +17,9 @@ const BasicButton = styled(DefaultButton)`
   
   .gradient, .gradient:after {
     position: absolute;
-    top: 0px;
-    left: 0px;
-    right: 0px;
+    top: 0;
+    left: 0;
+    right: 0;
     margin: auto;
     width: 150px;
     height: 48px;
@@ -43,26 +43,24 @@ const BasicButton = styled(DefaultButton)`
     margin: auto;
     width: 150px;
     background: ${theme.colors.menuColor};
-    padding: 17px 0 15px;
+    padding: 16px 0 15px;
     border-radius: 4px;
     text-transform: uppercase;
     transition: 0.3s;
-    ${theme.fonts.CirceBold}
-    ${fontSize(16, 16)}
+    ${theme.fonts.TitilliumWebBold}
+    ${fontSize(18, 16)}
     background: transparent;
     
     &:focus {
-      box-shadow: 0px 0px 10px ${theme.colors.menuShadow};
+      box-shadow: 0 0 10px ${theme.colors.menuShadow};
       outline: none;
     }
   }
   
   .button:hover + .gradient:after {
     opacity: 1;
-    left: 0px;
+    left: 0;
   }
-  
-  
 `;
 
 export default BasicButton;

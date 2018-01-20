@@ -26,9 +26,9 @@ const BasicSearch = (props) => {
         onKeyUp={(e) => e.target.setAttribute('data-value', e.target.value)}
       />
       <label>
+        <span className="material-icons">search</span>
         <span>{LangList.En.Search}</span>
       </label>
-      <button className="material-icons">search</button>
       <SearchResults>
         {
           props.store.search.searchData ? (
@@ -48,9 +48,11 @@ const BasicSearch = (props) => {
 
 const SearchResults = styled.div`
   position: absolute;
-  left: 0px;
+  left: 0;
   top: 60px;
   text-align: left;
+  width: 100%;
+  z-index: 2;
 `;
 
 const Search = styled(BasicSearch)`
@@ -63,7 +65,7 @@ const Search = styled(BasicSearch)`
     position: absolute;
     z-index: 3;
     top: ${theme.paddings.inputTop};
-    left: ${theme.paddings.inputContainerSide};
+    left: ${theme.paddings.inputSide};
     cursor: default;
   }
   
@@ -71,15 +73,19 @@ const Search = styled(BasicSearch)`
     position: absolute;
     z-index: 1;
     transition: 0.3s;
-    top: 0px;
-    left: calc(${theme.paddings.inputContainerSide} + 30px);
-    top: calc(${theme.paddings.inputTop} + 6px);
+    left: ${theme.paddings.inputLabelSide};
+    top: ${theme.paddings.inputLabelTop};
+    ${flexContainer('center','center','center')}
+    
+    span:not(.material-icons) {
+      margin: -1px 0 0 3px;
+    }
   }
   
   input[type=text] {
     padding: ${theme.paddings.inputTop} ${theme.paddings.inputSide};
     background: transparent;
-    ${theme.fonts.CirceLight}
+    ${theme.fonts.TitilliumWebRegular}
     ${fontSize(16, 24)}
     width: 100%;
     box-sizing: border-box;
@@ -94,7 +100,7 @@ const Search = styled(BasicSearch)`
       box-shadow: 0px 0px 30px ${theme.colors.menuShadow};
     }
     
-    &:focus + label, &:not([data-value=""]) + label {
+    &:focus + label span:not(.material-icons), &:not([data-value=""]) + label span:not(.material-icons) {
       opacity: 0;
     }
   }

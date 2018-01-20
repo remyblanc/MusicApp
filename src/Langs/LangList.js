@@ -13,6 +13,7 @@ const En = {
   "BackLink": "Back",
   "RecoverInfo": "User founded, next actions sent to email.",
   "LogInInfo": "It seems that login or password incorrect.",
+  "DefaultPlaylist": "New Playlist",
 };
 
 const Ru = {
@@ -30,6 +31,7 @@ const Ru = {
   "BackLink": "Назад",
   "RecoverInfo": "Дальнейшние инструкции отправлены вам на e-mail.",
   "LogInInfo": "Вы ввели не верный логин или пароль",
+  "DefaultPlaylist": "Новый плейлист",
 };
 
 const LangList = {En, Ru};

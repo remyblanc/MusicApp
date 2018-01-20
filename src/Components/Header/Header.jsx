@@ -4,11 +4,17 @@ import { theme, macbook, flexContainer } from "../../lib/theme";
 
 import Search from ".././Search/Search";
 import UserForm from ".././UserForm/UserForm";
+import { connect } from "react-redux";
 
-const BasicHeader = ({ className }) => {
+const BasicHeader = (props) => {
   return(
-    <div {...{ className}}>
-      <Search />
+    <div className={props.className}>
+      {props.store.user.playlists.length > 0 ?
+        <Search />
+        :
+        <div />
+      }
+
       <UserForm />
     </div>
   );
@@ -19,4 +25,10 @@ const Header = styled(BasicHeader)`
   ${flexContainer('space-between','center','center')}
 `;
 
-export default Header;
+function mapStateToProps(state) {
+  return {
+    store: state
+  }
+}
+
+export default connect(mapStateToProps)(Header);

@@ -18,11 +18,6 @@ import LoginPage from "./Pages/LoginPage/LoginPage";
 import RegisterPage from "./Pages/RegisterPage/RegisterPage";
 
 const BasicApp = ({ className }) => {
-  const firstChild = props => {
-    const childrenArray = React.Children.toArray(props.children);
-    return childrenArray[0] || null;
-  };
-
   return(
     <div {...{ className}}>
       <ConnectedRouter history={history}>

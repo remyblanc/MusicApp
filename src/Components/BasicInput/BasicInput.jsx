@@ -29,25 +29,24 @@ const BasicInput = styled(DefaultInput)`
   height: 56px;
   
   &.error {
-    box-shadow: 0px 0px 0px 1px ${theme.colors.red};
+    box-shadow: 0 0 0 1px ${theme.colors.red};
     animation: tremble 0.2s 2;  
   }
   
   &.success {
-    box-shadow: 0px 0px 0px 1px ${theme.colors.green};
+    box-shadow: 0 0 0 1px ${theme.colors.green};
   }
   
   label {
     position: absolute;
     z-index: 1;
     transition: 0.3s;
-    top: 0px;
-    left: calc(${theme.paddings.inputContainerSide});
+    left: calc(${theme.paddings.inputLabelSide});
     top: calc(${theme.paddings.inputTop});
     ${flexContainer('center','center','center')}
     
     & span:not(.material-icons) {
-      margin: 6px 0px 0px 5px;
+      margin: 6px 0 0 5px;
     }
   }
   
@@ -58,12 +57,12 @@ const BasicInput = styled(DefaultInput)`
     box-sizing: border-box;
     position: relative;
     z-index: 2;
-    top: 0px;
+    top: 0;
     transition: 0.3s;
     border-radius: 4px;
     
     &:focus {
-      box-shadow: 0px 0px 30px ${theme.colors.menuShadow};
+      box-shadow: 0 0 30px ${theme.colors.menuShadow};
     }
 
     &:focus + label span:not(.material-icons), &:not([data-value=""]) + label span:not(.material-icons) {
@@ -72,7 +71,7 @@ const BasicInput = styled(DefaultInput)`
   }
   
   input[type=text] {
-    ${theme.fonts.CirceLight}
+    ${theme.fonts.TitilliumWebRegular}
     ${fontSize(16, 16)}
   }
   

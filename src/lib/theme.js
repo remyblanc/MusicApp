@@ -1,6 +1,7 @@
 export const theme = {
   colors: {
     menuColor: '#282f4b',
+    menuColorRgba: 'rgba(40,47,75, 0.5)',
     menuShadow: '#55608f',
     bgColorLighter: '#434f74',
     bgColorDarker: '#2f3755',
@@ -11,16 +12,20 @@ export const theme = {
     green: '#00ff00'
   },
   fonts: {
-    CirceLight: `
-      font-family: Circe;
+    TitilliumWebThin: `
+      font-family: TitilliumWeb;
+      font-weight: 100;
+    `,
+    TitilliumWebLight: `
+      font-family: TitilliumWeb;
       font-weight: 300;
     `,
-    CirceRegular: `
-      font-family: Circe;
+    TitilliumWebRegular: `
+      font-family: TitilliumWeb;
       font-weight: 400;
     `,
-    CirceBold: `
-      font-family: Circe;
+    TitilliumWebBold: `
+      font-family: TitilliumWeb;
       font-weight: 600;
     `,
   },
@@ -29,7 +34,8 @@ export const theme = {
     pcSide: '50px',
     inputTop: '15px',
     inputSide: '45px',
-    inputContainerSide: '15px',
+    inputLabelTop: '16px',
+    inputLabelSide: '15px',
   },
 };
 

@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
-import { SAGA_LOGIN, SAGA_RECOVER, SAGA_SEARCH } from '../actions';
+import {ADD_PLAYLIST, SAGA_LOGIN, SAGA_RECOVER, SAGA_SEARCH} from '../actions';
 
-const userReducer = (state = {}, action) => {
+const userReducer = (state = { playlists: []}, action) => {
   switch (action.type) {
     case SAGA_LOGIN:
       return {
@@ -14,6 +14,14 @@ const userReducer = (state = {}, action) => {
       return {
         login: action.login,
         recoverUser: action.recoverUser
+      };
+
+    case ADD_PLAYLIST:
+      const playlist = {
+        title: action.playlistName
+      };
+      return {
+        playlists: [...state.playlists, playlist]
       };
 
     default:

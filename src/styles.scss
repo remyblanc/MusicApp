@@ -13,24 +13,44 @@
 //  -webkit-align-items: $var;
 //  align-items: $var;
 //}
+//@font-face  {
+//  font-family: Circe;
+//  src: url('fonts/Circe-ExtraLight.otf') format("truetype");
+//  font-weight: 100;
+//}
+//@font-face  {
+//  font-family: Circe;
+//  src: url('fonts/Circe-Light.otf') format("truetype");
+//  font-weight: 300;
+//}
+//@font-face  {
+//  font-family: Circe;
+//  src: url('fonts/Circe-Regular.otf') format("truetype");
+//  font-weight: 400;
+//}
+//@font-face  {
+//  font-family: Circe;
+//  src: url('fonts/Circe-Bold.otf') format("truetype");
+//  font-weight: 600;
+//}
 @font-face  {
-  font-family: Circe;
-  src: url('fonts/Circe-ExtraLight.otf') format("truetype");
+  font-family: TitilliumWeb;
+  src: url('fonts/TitilliumWeb-ExtraLight.ttf') format("truetype");
   font-weight: 100;
 }
 @font-face  {
-  font-family: Circe;
-  src: url('fonts/Circe-Light.otf') format("truetype");
+  font-family: TitilliumWeb;
+  src: url('fonts/TitilliumWeb-Light.ttf') format("truetype");
   font-weight: 300;
 }
 @font-face  {
-  font-family: Circe;
-  src: url('fonts/Circe-Regular.otf') format("truetype");
+  font-family: TitilliumWeb;
+  src: url('fonts/TitilliumWeb-Regular.ttf') format("truetype");
   font-weight: 400;
 }
 @font-face  {
-  font-family: Circe;
-  src: url('fonts/Circe-Bold.otf') format("truetype");
+  font-family: TitilliumWeb;
+  src: url('fonts/TitilliumWeb-Bold.ttf') format("truetype");
   font-weight: 600;
 }
 * {
@@ -42,11 +62,9 @@
 html, body {
   background: #2f3756;
   color: #ffffff;
-  font-family: Circe, serif;
+  font-family: TitilliumWeb, serif;
   font-weight: 300;
-}
-.material-icons {
-  font-family: Material Icons;
+  -webkit-font-smoothing: antialiased;
 }
 .hidden {
   height: 0;

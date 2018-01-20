@@ -1,10 +1,10 @@
+export const ADD_PLAYLIST = "ADD_PLAYLIST";
 export const ON_LOGIN = 'ON_LOGIN';
 export const ON_RECOVER = 'ON_RECOVER';
 export const ON_SEARCH = 'ON_SEARCH';
 export const SAGA_LOGIN = 'SAGA_LOGIN';
 export const SAGA_RECOVER = 'SAGA_RECOVER';
 export const SAGA_SEARCH = 'SAGA_SEARCH';
-
 
 import LangList from "../Langs/LangList";
 
@@ -31,6 +31,14 @@ export function onSearch(searchData) {
     type: ON_SEARCH,
     searchData: searchData
   };
+}
+
+//implements on add playlist
+export function addPlaylist(e) {
+  return {
+    type: ADD_PLAYLIST,
+    playlistName: LangList.En.DefaultPlaylist
+  }
 }
 
 //implements when user press Forget your password link
