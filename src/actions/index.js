@@ -1,4 +1,5 @@
-export const ADD_PLAYLIST = "ADD_PLAYLIST";
+export const ADD_PLAYLIST = 'ADD_PLAYLIST';
+export const PLAYLIST_RENAME = 'PLAYLIST_RENAME';
 export const ON_LOGIN = 'ON_LOGIN';
 export const ON_RECOVER = 'ON_RECOVER';
 export const ON_SEARCH = 'ON_SEARCH';
@@ -34,10 +35,11 @@ export function onSearch(searchData) {
 }
 
 //implements on add playlist
-export function addPlaylist(e) {
+export function addPlaylist(playlistsCount) {
   return {
     type: ADD_PLAYLIST,
-    playlistName: LangList.En.DefaultPlaylist
+    playlistName: LangList.En.DefaultPlaylist,
+    playlistID: playlistsCount++
   }
 }
 

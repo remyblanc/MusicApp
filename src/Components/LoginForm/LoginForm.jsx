@@ -16,8 +16,8 @@ class BasicLoginForm extends React.Component {
     super(props);
   }
 
-  componentWillReceiveProps(props) {
-    if (props.store.user.logged === "no") {
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.store.user.logged === "no") {
       [...this.childNode.getElementsByTagName("input")].filter(input => {
         input.parentNode.classList.add("error");
       });
@@ -25,7 +25,7 @@ class BasicLoginForm extends React.Component {
       hidden.classList.remove("hidden");
       hidden.classList.add("shown");
       hidden.style.opacity = '1';
-    } else if (props.store.user.logged === "yes") {
+    } else if (nextProps.store.user.logged === "yes") {
       [...this.childNode.getElementsByTagName("input")].filter(input => {
         input.parentNode.classList.remove("error");
         input.parentNode.classList.add("success");
@@ -38,12 +38,12 @@ class BasicLoginForm extends React.Component {
         this.childNode.style.opacity = 0;
         document.getElementsByClassName("loader")[0].style.opacity = '1';
         setTimeout(() => {
-          props.changeUrl('/');
+          nextProps.changeUrl('/');
         },800);
       },550);
     }
 
-    if (props.store.user.recoverUser === "yes") {
+    if (nextProps.store.user.recoverUser === "yes") {
       [...this.childNode.getElementsByTagName("input")].filter(input => {
         input.parentNode.classList.remove("error");
         input.parentNode.classList.add("success");

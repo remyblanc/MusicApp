@@ -28,25 +28,68 @@ const AddPlaylist = styled.div`
   }
 `;
 
-const BasicMenu = (props) => {
-  return(
-    <div className={props.className}>
-      <div>
-        <Link to="/">
-          <img alt="" src={logo} />
-        </Link>
-      </div>
-      <br />
-      {props.store.user.playlists.map(playlist =>
-        <PlaylistLink PlaylistLinkTitle="123 "/>
-      )}
+let updateLast = false;
 
-      <AddPlaylist onClick={() => props.addPlaylist()}>
-        <span className="material-icons">playlist_add</span>
-        <span>Add playlist</span>
-      </AddPlaylist>
-    </div>
-  );
+class BasicMenu extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.store.user.playlists.length < nextProps.store.user.playlists.length) {
+      updateLast = true;
+    }
+  }
+
+  componentDidUpdate() {
+    function selection(element) {
+      let target = element;
+      let rng, sel;
+      if (document.createRange) {
+        rng = document.createRange();
+        rng.selectNode(target);
+        sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(rng);
+      } else {
+        let rng = document.body.createTextRange();
+        rng.moveToElementText(target);
+        rng.select();
+      }
+    }
+    if (updateLast === true) {
+      let newPlaylistID = document.getElementsByClassName("playlistLink")[document.getElementsByClassName("playlistLink").length-1];
+      newPlaylistID.contentEditable = true;
+      newPlaylistID.focus();
+      document.execCommand('selectAll', false, null);
+      updateLast = false;
+    }
+  }
+
+  render() {
+    return (
+      <div className={this.props.className}>
+        <div>
+          <Link to="/">
+            <img alt="" src={logo}/>
+          </Link>
+        </div>
+        <br/>
+        {this.props.store.user.playlists.map(playlist =>
+          <PlaylistLink
+            PlaylistLinkTitle={playlist.title}
+            key={playlist.id}
+            id={playlist.id}
+          />
+        )}
+
+        <AddPlaylist onClick={() => this.props.addPlaylist(document.getElementsByClassName("playlistLink").length)}>
+          <span className="material-icons">playlist_add</span>
+          <span>Add playlist</span>
+        </AddPlaylist>
+      </div>
+    );
+  }
 };
 
 const Menu = styled(BasicMenu)`
@@ -66,7 +109,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    addPlaylist: () => dispatch(addPlaylist())
+    addPlaylist: playlistsCount => dispatch(addPlaylist(playlistsCount))
   }
 }
 

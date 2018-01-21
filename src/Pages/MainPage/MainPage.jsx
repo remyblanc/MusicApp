@@ -31,8 +31,6 @@ class MainPage extends React.Component {
   }
 
   render() {
-
-
     return (
       <AnimatedRouter>
         {this.props.store.user.login ?
