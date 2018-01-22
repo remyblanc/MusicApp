@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 import { ADD_PLAYLIST, ADD_SONG_TO_PLAYLIST, DELETE_PLAYLIST, RENAME_PLAYLIST, SAGA_LOGIN, SAGA_RECOVER, SAGA_SEARCH } from '../actions';
 
-const userReducer = (state = { playlists: [], activePlaylist: {}}, action) => {
+const userReducer = (state = { playlists: [], activePlaylist: { musicList: [] }}, action) => {
   switch (action.type) {
     case SAGA_LOGIN:
       return {
@@ -22,17 +22,34 @@ const userReducer = (state = { playlists: [], activePlaylist: {}}, action) => {
         title: `${action.playlistName}(${action.playlistID+1})`
       };
       return {
-        activePlaylist: playlist,
+        activePlaylist: {musicList: [], playlist},
         playlists: [...state.playlists, playlist]
       };
 
     case ADD_SONG_TO_PLAYLIST:
-      if (state.activePlaylist.musicList) {
-        console.log("exists");
+      if (state.activePlaylist.title) {
+        return {
+          ...state,
+          activePlaylist: {
+            id: state.activePlaylist.id,
+            title: state.activePlaylist.title,
+            musicList: [...state.activePlaylist.musicList, action.songData]
+          }
+        };
       } else {
-        console.log("no-music-exists");
+        return {
+          ...state,
+          playlists: [{
+            id: 0,
+            title: "NewPlaylist(1)",
+          }],
+          activePlaylist: {
+            id: 0,
+            title: "NewPlaylist(1)",
+            musicList: [...state.activePlaylist.musicList, action.songData]
+          }
+        }
       }
-    return state;
 
     case DELETE_PLAYLIST:
       const index = state.playlists.findIndex(playlist => playlist.id === action.playlistID);

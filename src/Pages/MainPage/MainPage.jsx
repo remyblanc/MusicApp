@@ -7,6 +7,7 @@ import LangList from "../../Langs/LangList";
 
 import AnimatedRouter from "../../Components/AnimatedRouter/AnimatedRouter";
 import Search from "../../Components/Search/Search";
+import Playlist from "../../Components/Playlist/Playlist";
 
 const NotLogged = styled.div`
   text-align:center;
@@ -17,6 +18,7 @@ const NotLogged = styled.div`
   right: 0;
   margin: auto;
   width: 690px;
+  transition: 0.3s;
   
   p {
     font-size: 22px;
@@ -30,17 +32,24 @@ class MainPage extends React.Component {
     super(props);
   }
 
+  componentWillUpdate(nextProps, nextState) {
+    if (nextProps.store.user.activePlaylist.musicList.length > 0) {
+      document.getElementsByClassName('not-logged')[0].style.opacity = 0;
+    }
+  }
+
   render() {
     return (
       <AnimatedRouter>
-        {this.props.store.user.login ?
-          <div>sda</div>
-          :
-          <NotLogged>
+        <Playlist />
+        {/*{this.props.store.user.activePlaylist.musicList.length > 0 ?*/}
+          {/*<div />*/}
+          {/*:*/}
+          <NotLogged className="not-logged">
             <p>{LangList.En.MainDesc}</p>
             <Search />
           </NotLogged>
-        }
+        // }
       </AnimatedRouter>
     );
   }

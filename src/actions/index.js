@@ -45,10 +45,10 @@ export function addPlaylist(playlistsCount) {
   }
 }
 
-export function addSongToPlaylist(songElement) {
+export function addSongToPlaylist(songData) {
   return {
     type: ADD_SONG_TO_PLAYLIST,
-    songElement: songElement
+    songData: songData
   }
 }
 

@@ -32,14 +32,12 @@ const BasicSearch = (props) => {
       <SearchResults>
         {
           props.store.search.searchData ? (
-              props.store.search.searchData.map(song => { return (
+              props.store.search.searchData.map((song) => { return (
                 <SearchResult
-                  key={0}
+                  key={song.songID}
                   songData={song}
                 />)
-              }))
-            :
-            null
+              })) : null
         }
       </SearchResults>
     </div>

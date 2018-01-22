@@ -20,7 +20,7 @@ const BasicSearchResult = (props) => {
         <div className="song-time">5:36</div>
         <div
           className="material-icons playlist-add"
-          onClick={(song) => props.addSongToPlaylist(song.target)}>playlist_add</div>
+          onClick={() => props.addSongToPlaylist(props.songData)}>playlist_add</div>
       </div>
     </div>
   );
@@ -28,8 +28,8 @@ const BasicSearchResult = (props) => {
 
 const SearchResult = styled(BasicSearchResult)`
   background: ${theme.colors.menuColorRgba};
-  padding: 10px ;
-  margin-bottom: 3px;n
+  padding: 10px;
+  margin-bottom: 3px;
   border-radius: 4px;
   transition: 0.3s;
   color:#ffffff;
@@ -84,7 +84,7 @@ const SearchResult = styled(BasicSearchResult)`
 
 function mapDispatchToProps(dispatch) {
   return {
-    addSongToPlaylist: songElement => dispatch(addSongToPlaylist(songElement))
+    addSongToPlaylist: songData => dispatch(addSongToPlaylist(songData))
   }
 }
 
