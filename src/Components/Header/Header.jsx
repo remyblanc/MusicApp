@@ -9,7 +9,7 @@ import { connect } from "react-redux";
 const BasicHeader = (props) => {
   return(
     <div className={props.className}>
-      {props.store.user.playlists.length > 0 ?
+      {props.store.user.activePlaylist.musicList ?
         <Search />
         :
         <div />

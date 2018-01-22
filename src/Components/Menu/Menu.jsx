@@ -79,7 +79,7 @@ class BasicMenu extends React.Component {
           <PlaylistLink
             PlaylistLinkTitle={playlist.title}
             key={playlist.id}
-            id={playlist.id}
+            PlaylistID={playlist.id}
           />
         )}
 
@@ -90,7 +90,7 @@ class BasicMenu extends React.Component {
       </div>
     );
   }
-};
+}
 
 const Menu = styled(BasicMenu)`
   height: 100%;

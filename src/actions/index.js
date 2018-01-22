@@ -1,5 +1,7 @@
 export const ADD_PLAYLIST = 'ADD_PLAYLIST';
-export const PLAYLIST_RENAME = 'PLAYLIST_RENAME';
+export const ADD_SONG_TO_PLAYLIST = 'ADD_SONG_TO_PLAYLIST';
+export const DELETE_PLAYLIST = 'DELETE_PLAYLIST';
+export const RENAME_PLAYLIST = 'RENAME_PLAYLIST';
 export const ON_LOGIN = 'ON_LOGIN';
 export const ON_RECOVER = 'ON_RECOVER';
 export const ON_SEARCH = 'ON_SEARCH';
@@ -40,6 +42,30 @@ export function addPlaylist(playlistsCount) {
     type: ADD_PLAYLIST,
     playlistName: LangList.En.DefaultPlaylist,
     playlistID: playlistsCount++
+  }
+}
+
+export function addSongToPlaylist(songElement) {
+  return {
+    type: ADD_SONG_TO_PLAYLIST,
+    songElement: songElement
+  }
+}
+
+//implements on delete playlist
+export function deletePlaylist(playlist) {
+  return {
+    type: DELETE_PLAYLIST,
+    playlistID: playlist.playlistID
+  }
+}
+
+//implements on rename playlist
+export function renamePlaylist(playlist) {
+  return {
+    type: RENAME_PLAYLIST,
+    playlistName: playlist.playlistName,
+    playlistID: playlist.playlistID
   }
 }
 

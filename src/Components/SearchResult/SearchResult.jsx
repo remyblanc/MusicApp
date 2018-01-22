@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from "styled-components";
 
-import {theme, macbook, flexContainer, fontSize} from "../../lib/theme";
+import { theme, macbook, flexContainer, fontSize } from "../../lib/theme";
+import { addPlaylist, addSongToPlaylist } from "../../actions";
+import { connect } from "react-redux";
 
 const BasicSearchResult = (props) => {
   return(
@@ -16,7 +18,9 @@ const BasicSearchResult = (props) => {
       <div>
         {/*<div className="hq">hq</div>*/}
         <div className="song-time">5:36</div>
-        <div className="material-icons playlist-add">playlist_add</div>
+        <div
+          className="material-icons playlist-add"
+          onClick={(song) => props.addSongToPlaylist(song.target)}>playlist_add</div>
       </div>
     </div>
   );
@@ -25,7 +29,7 @@ const BasicSearchResult = (props) => {
 const SearchResult = styled(BasicSearchResult)`
   background: ${theme.colors.menuColorRgba};
   padding: 10px ;
-  margin-bottom: 3px;
+  margin-bottom: 3px;n
   border-radius: 4px;
   transition: 0.3s;
   color:#ffffff;
@@ -78,4 +82,10 @@ const SearchResult = styled(BasicSearchResult)`
   }
 `;
 
-export default SearchResult;
+function mapDispatchToProps(dispatch) {
+  return {
+    addSongToPlaylist: songElement => dispatch(addSongToPlaylist(songElement))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(SearchResult);

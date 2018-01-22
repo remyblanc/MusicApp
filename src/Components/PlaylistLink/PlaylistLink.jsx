@@ -4,11 +4,13 @@ import styled from "styled-components";
 import {theme, macbook, flexContainer, fontSize} from "../../lib/theme";
 
 import { connect } from "react-redux";
-import { playlistRename } from "../../actions";
+import { renamePlaylist, deletePlaylist } from "../../actions";
 
 const BasicPlaylistLink = (props) => {
+  let plN = props.PlaylistLinkTitle;
   return(
     <div
+      data-playlistid={props.PlaylistID}
       className={`${props.className} playlistLink`}
       onDoubleClick={e => {
         e.target.contentEditable = true;
@@ -18,7 +20,13 @@ const BasicPlaylistLink = (props) => {
       onKeyDown={e => e.keyCode === 13 ? e.target.blur() : null}
       onBlur={e => {
         e.target.contentEditable = false;
-        props.playlistRename();
+        if (plN !== e.target.innerHTML) {
+          let playlist = {
+            playlistName: e.target.innerHTML,
+            playlistID: parseInt(e.target.dataset.playlistid)
+          };
+          playlist.playlistName ? props.renamePlaylist(playlist) : props.deletePlaylist(playlist);
+        }
       }}>
       {props.PlaylistLinkTitle}
     </div>
@@ -31,6 +39,8 @@ const PlaylistLink = styled(BasicPlaylistLink)`
   padding: 3px 2px;
   user-select: none;
   max-width: 100px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
   ${fontSize(14, 14)}
   
   &:focus {
@@ -49,7 +59,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    playlistRename: playlistName => dispatch(playlistRename(playlistName))
+    renamePlaylist: playlist => dispatch(renamePlaylist(playlist)),
+    deletePlaylist: playlist => dispatch(deletePlaylist(playlist))
   }
 }
 
