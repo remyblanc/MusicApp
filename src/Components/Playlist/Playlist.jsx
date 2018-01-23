@@ -21,6 +21,7 @@ class BasicPlaylist extends React.Component {
   render() {
     return (
       <div className={this.props.className}>
+        <span>{this.props.store.user.activePlaylist.title}</span>
         {
           this.props.store.user.activePlaylist.musicList.map((song, index) => {
             return (
@@ -39,7 +40,7 @@ const Playlist = styled(BasicPlaylist)`
   width: 690px;
   margin: 25px auto auto;
   opacity: 0;
-  transition: 0.5s;
+  transition: 0.7s;
 `;
 
 function mapStateToProps(state) {

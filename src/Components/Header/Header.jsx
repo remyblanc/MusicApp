@@ -21,7 +21,7 @@ const BasicHeader = (props) => {
 };
 
 const Header = styled(BasicHeader)`
-  padding: ${theme.paddings.pcTop} ${theme.paddings.pcSide};
+  padding: ${theme.paddings.pcTop} ${theme.paddings.pcSide} ${theme.paddings.pcTop} 160px;
   ${flexContainer('space-between','center','center')}
 `;
 

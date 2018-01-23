@@ -41,7 +41,7 @@ const BasicApp = ({ className }) => {
 };
 
 const App = styled(BasicApp)`
-  margin-left: 109px;
+  margin-left: 0;
   min-height: 100vh;
   ${gradient('radial', '',theme.colors.bgColorLighter, theme.colors.bgColorDarker)}
   ${macbook(`

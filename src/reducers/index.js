@@ -76,13 +76,23 @@ const userReducer = (state = { playlists: [], activePlaylist: { musicList: [] }}
       })};
 
     case RENAME_PLAYLIST:
-      let newState = {...state};
-      newState.playlists.filter(playlist => {
-        if (playlist.id === action.playlistID) {
-          playlist.title = action.playlistName;
-        }
-      });
-      return newState;
+      return {
+        ...state,
+        activePlaylist: {
+          ...state.activePlaylist,
+          title: action.playlistName,
+        },
+        playlists: [...state.playlists.map(playlist => {
+          if (playlist.id === action.playlistID) {
+            return {
+              ...playlist,
+              title: action.playlistName
+            }
+          } else {
+            return playlist;
+          }
+        })],
+      };
 
     default:
       return state;

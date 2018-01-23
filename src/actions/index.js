@@ -45,6 +45,7 @@ export function addPlaylist(playlistsCount) {
   }
 }
 
+//implements on add song to playlist
 export function addSongToPlaylist(songData) {
   return {
     type: ADD_SONG_TO_PLAYLIST,
