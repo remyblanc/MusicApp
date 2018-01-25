@@ -35,6 +35,8 @@ class MainPage extends React.Component {
   componentWillUpdate(nextProps, nextState) {
     if (nextProps.store.user.activePlaylist.musicList.length > 0) {
       document.getElementsByClassName('not-logged')[0].style.opacity = 0;
+    } else {
+      document.getElementsByClassName('not-logged')[0].style.opacity = 1;
     }
   }
 

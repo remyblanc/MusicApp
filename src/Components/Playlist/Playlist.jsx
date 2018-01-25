@@ -15,6 +15,9 @@ class BasicPlaylist extends React.Component {
     if (nextProps.store.user.activePlaylist.musicList.length > 0) {
       document.getElementsByClassName(nextProps.className)[0].style.opacity = 1;
       document.getElementsByClassName(nextProps.className)[0].style.marginTop = 0;
+    } else {
+      document.getElementsByClassName(nextProps.className)[0].style.opacity = 0;
+      document.getElementsByClassName(nextProps.className)[0].style.marginTop = "25px";
     }
   }
 

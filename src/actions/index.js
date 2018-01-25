@@ -1,5 +1,6 @@
 export const ADD_PLAYLIST = 'ADD_PLAYLIST';
 export const ADD_SONG_TO_PLAYLIST = 'ADD_SONG_TO_PLAYLIST';
+export const ACTIVATE_PLAYLIST = 'ACTIVATE_PLAYLIST';
 export const DELETE_PLAYLIST = 'DELETE_PLAYLIST';
 export const RENAME_PLAYLIST = 'RENAME_PLAYLIST';
 export const ON_LOGIN = 'ON_LOGIN';
@@ -50,6 +51,16 @@ export function addSongToPlaylist(songData) {
   return {
     type: ADD_SONG_TO_PLAYLIST,
     songData: songData
+  }
+}
+
+
+//implements on PlaylistLink click
+export function activatePlaylist(playlist) {
+  return {
+    type: ACTIVATE_PLAYLIST,
+    playlistID: playlist.playlistID,
+    playlistName: playlist.playlistName
   }
 }
 

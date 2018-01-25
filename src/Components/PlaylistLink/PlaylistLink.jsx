@@ -1,17 +1,24 @@
 import React from 'react';
 import styled from "styled-components";
 
-import {theme, macbook, flexContainer, fontSize} from "../../lib/theme";
+import { theme, macbook, flexContainer, fontSize } from "../../lib/theme";
 
 import { connect } from "react-redux";
-import { renamePlaylist, deletePlaylist } from "../../actions";
+import { activatePlaylist, renamePlaylist, deletePlaylist } from "../../actions";
 
 const BasicPlaylistLink = (props) => {
-  let plN = props.PlaylistLinkTitle;
+  let playlistTitle = props.PlaylistLinkTitle;
   return(
     <div
       data-playlistid={props.PlaylistID}
-      className={`${props.className} playlistLink`}
+      className={`${props.className} playlistLink ${props.activePlaylist ? 'active-playlistLink' : null}`}
+      onClick={e => {
+        let playlist = {
+          playlistName: e.target.innerHTML,
+          playlistID: parseInt(e.target.dataset.playlistid)
+        };
+        props.activatePlaylist(playlist);
+      }}
       onDoubleClick={e => {
         e.target.contentEditable = true;
         e.target.focus();
@@ -20,7 +27,7 @@ const BasicPlaylistLink = (props) => {
       onKeyDown={e => e.keyCode === 13 ? e.target.blur() : null}
       onBlur={e => {
         e.target.contentEditable = false;
-        if (plN !== e.target.innerHTML) {
+        if (playlistTitle !== e.target.innerHTML) {
           let playlist = {
             playlistName: e.target.innerHTML,
             playlistID: parseInt(e.target.dataset.playlistid)
@@ -43,6 +50,10 @@ const PlaylistLink = styled(BasicPlaylistLink)`
   overflow-wrap: break-word;
   ${fontSize(14, 14)}
   
+  &.active-playlistLink {
+    color: red;
+  }
+  
   &:focus {
     outline: none;
     box-shadow: 0 0 0 1px rgba(255,255,255,0.5);
@@ -59,6 +70,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
+    activatePlaylist: playlist => dispatch(activatePlaylist(playlist)),
     renamePlaylist: playlist => dispatch(renamePlaylist(playlist)),
     deletePlaylist: playlist => dispatch(deletePlaylist(playlist))
   }

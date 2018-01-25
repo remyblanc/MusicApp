@@ -77,6 +77,7 @@ class BasicMenu extends React.Component {
         <br/>
         {this.props.store.user.playlists.map(playlist =>
           <PlaylistLink
+            activePlaylist={this.props.store.user.activePlaylist.id === playlist.id}
             PlaylistLinkTitle={playlist.title}
             key={playlist.id}
             PlaylistID={playlist.id}
