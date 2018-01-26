@@ -48,13 +48,20 @@ const PlaylistLink = styled(BasicPlaylistLink)`
   max-width: 100px;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  opacity: 0.5;
+  transition: opacity 0.1s;
   ${fontSize(14, 14)}
   
-  &.active-playlistLink {
-    color: red;
+  &.active-playlistLink, &.active-playlistLink:hover {
+    opacity: 1;
+  }
+  
+  &:hover {
+    opacity: 0.75;
   }
   
   &:focus {
+    opacity: 1;
     outline: none;
     box-shadow: 0 0 0 1px rgba(255,255,255,0.5);
     //border: 1px solid rgba(255,255,255,0.5);

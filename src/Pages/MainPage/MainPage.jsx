@@ -32,26 +32,22 @@ class MainPage extends React.Component {
     super(props);
   }
 
-  componentWillUpdate(nextProps, nextState) {
-    if (nextProps.store.user.activePlaylist.musicList.length > 0) {
-      document.getElementsByClassName('not-logged')[0].style.opacity = 0;
-    } else {
-      document.getElementsByClassName('not-logged')[0].style.opacity = 1;
-    }
-  }
+  // componentWillUpdate(nextProps, nextState) {
+  //   if (nextProps.store.user.activePlaylist.musicList.length > 0) {
+  //     document.getElementsByClassName('not-logged')[0].style.opacity = 0;
+  //   } else {
+  //     document.getElementsByClassName('not-logged')[0].style.opacity = 1;
+  //   }
+  // }
 
   render() {
     return (
       <AnimatedRouter>
-        <Playlist />
-        {/*{this.props.store.user.activePlaylist.musicList.length > 0 ?*/}
-          {/*<div />*/}
-          {/*:*/}
-          <NotLogged className="not-logged">
-            <p>{LangList.En.MainDesc}</p>
-            <Search />
-          </NotLogged>
-        // }
+        <Playlist/>
+        <NotLogged className="not-logged">
+          <p>{LangList.En.MainDesc}</p>
+          <Search/>
+        </NotLogged>
       </AnimatedRouter>
     );
   }

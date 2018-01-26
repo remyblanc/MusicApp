@@ -10,7 +10,7 @@ const BasicHeader = (props) => {
   return(
     <div className={props.className}>
       {props.store.user.activePlaylist.musicList.length > 0 ?
-        <Search />
+        <Search className="ma" />
         :
         <div />
       }

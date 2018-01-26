@@ -13,6 +13,7 @@ const BasicSearch = (props) => {
   return(
     <div className={props.className}>
       <input
+        className="search"
         type="text"
         data-value=""
         onChange={
@@ -32,12 +33,12 @@ const BasicSearch = (props) => {
       <SearchResults>
         {
           props.store.search.searchData ? (
-              props.store.search.searchData.map((song) => { return (
-                <SearchResult
-                  key={song.songID}
-                  songData={song}
-                />)
-              })) : null
+            props.store.search.searchData.map((song) => { return (
+              <SearchResult
+                key={song.songID}
+                songData={song}
+              />)
+          })) : null
         }
       </SearchResults>
     </div>

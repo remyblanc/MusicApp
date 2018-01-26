@@ -77,13 +77,15 @@ const userReducer = (state = { playlists: [], activePlaylist: { musicList: [] }}
       };
 
     case DELETE_PLAYLIST:
+      console.log('pl3', action.playlistID);
       const index = state.playlists.findIndex(playlist => playlist.id === action.playlistID);
+      console.log(index);
       //at first removing deleted element, then decrement id of others after index
       return {
         activePlaylist: {
           id: state.playlists[index-1].id,
           title: state.playlists[index-1].title,
-          musicList: []
+          musicList: [...state.playlists[index-1].musicList],
         },
         playlists: {
           playlists: [...state.playlists.slice(0, index), ...state.playlists.slice(index+1)]
@@ -94,10 +96,10 @@ const userReducer = (state = { playlists: [], activePlaylist: { musicList: [] }}
             title: playlist.title
           }
         } else {
-          return {
-            id: --playlist.id,
-            title: playlist.title
-          }
+          // return {
+          //   id: --playlist.id,
+          //   title: playlist.title
+          // }
         }
       })};
 

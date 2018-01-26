@@ -22,9 +22,9 @@ const BasicApp = ({ className }) => {
     <div {...{ className}}>
       <ConnectedRouter history={history}>
         <div>
+          <img className="loader" alt="" src={loader} />
           <Menu />
           <Header />
-          <img className="loader" alt="" src={loader} />
             <Switch>
               <Route
                 exact
